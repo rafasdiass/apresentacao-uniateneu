@@ -117,12 +117,17 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--hair);
 }
-.nav__in { display: flex; align-items: center; gap: 1.2rem; height: 64px; }
-.brandlock { display: flex; align-items: center; gap: .7rem; font-weight: 600; font-size: .92rem; white-space: nowrap; }
-.brandlock img { height: 26px; width: auto; display: block; }
-.brandlock .x { color: var(--ink-soft); font-family: var(--f-mono); }
-.brandlock .lv { color: var(--lavita); }
-.nav__links { display: flex; gap: .3rem; margin-left: auto; }
+.nav__in { display: flex; align-items: center; gap: 1rem; height: 70px; }
+.logo-chip {
+  background: #fff; border-radius: 9px; padding: 6px 11px;
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(16,34,47,.12);
+}
+.logo-chip img { height: 30px; width: auto; display: block; }
+.nav .logo-chip img { height: 28px; }
+.nav__links { display: flex; gap: .3rem; margin: 0 auto; }
+.nav__right { display: flex; align-items: center; gap: .7rem; margin-left: auto; }
+@media (max-width: 620px) { .nav .logo-chip img { height: 22px; } .nav__in { gap: .6rem; } }
 .nav__links a {
   font-size: .84rem; font-weight: 500; color: var(--ink-soft);
   text-decoration: none; padding: .45rem .7rem; border-radius: 8px; white-space: nowrap;
@@ -426,9 +431,10 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
 
 /* ---------- footer ---------- */
 .footer { border-top: 1px solid var(--hair); background: var(--surface); }
-.footer .wrap { padding: 2.6rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
-.footer img { height: 30px; width: auto; opacity: .9; }
-.footer .marks { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
-.footer small { color: var(--ink-soft); font-size: .8rem; max-width: 46ch; display: block; }
+.footer .wrap { padding: 2.8rem 0; display: flex; flex-direction: column; gap: 1.6rem; }
+.footer .marks { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.footer .logo-chip img { height: 46px; }
+.footer small { color: var(--ink-soft); font-size: .82rem; line-height: 1.7; max-width: 78ch; }
+@media (max-width: 560px) { .footer .marks { justify-content: center; } .footer .logo-chip img { height: 38px; } }
 
 :focus-visible { outline: 3px solid var(--primary-br); outline-offset: 2px; border-radius: 4px; }
