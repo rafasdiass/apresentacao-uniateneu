@@ -344,6 +344,76 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
 .dont { border-top: 3px solid var(--forja) !important; }
 .dont ul li::marker { color: var(--forja); }
 
+/* ---------- scroll progress ---------- */
+.progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--primary-br), var(--green));
+  z-index: 60; transition: width .1s linear;
+}
+@media (prefers-reduced-motion: reduce) { .progress { transition: none; } }
+
+/* ---------- back to top ---------- */
+.fab {
+  position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem);
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--hair);
+  background: var(--primary); color: #fff; font-size: 1.3rem; cursor: pointer;
+  display: grid; place-items: center; box-shadow: var(--shadow-lg);
+  opacity: 0; transform: translateY(12px) scale(.9); pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease; z-index: 55;
+}
+.fab.show { opacity: 1; transform: none; pointer-events: auto; }
+.fab:hover { filter: brightness(1.08); }
+@media (prefers-reduced-motion: reduce) { .fab { transition: opacity .2s; } }
+
+/* ---------- accordion (research detail) ---------- */
+.acc-btn {
+  display: inline-flex; align-items: center; gap: .55em;
+  font-family: var(--f-mono); font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--key, var(--primary));
+  background: color-mix(in srgb, var(--key, var(--primary)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--key, var(--primary)) 30%, transparent);
+  padding: .55rem 1rem; border-radius: 9px; cursor: pointer; margin-top: 1rem;
+  transition: background .15s ease;
+}
+.acc-btn:hover { background: color-mix(in srgb, var(--key, var(--primary)) 18%, transparent); }
+.acc-btn .caret { transition: transform .2s ease; }
+.acc-btn[aria-expanded="true"] .caret { transform: rotate(90deg); }
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease; }
+.acc-panel > div { overflow: hidden; }
+.acc-panel.open { grid-template-rows: 1fr; }
+.acc-panel .research { margin-top: 1rem; }
+@media (prefers-reduced-motion: reduce) { .acc-panel { transition: none; } }
+
+/* ---------- interactive name picker ---------- */
+.namepick { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1rem 0 1.2rem; }
+.namepick button {
+  font-family: var(--f-display); font-size: 1rem; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hair); border-radius: 999px;
+  padding: .5rem 1.1rem; cursor: pointer; transition: all .15s ease;
+}
+.namepick button:hover { border-color: var(--teal); }
+.namepick button[aria-pressed="true"] {
+  background: var(--teal); color: #fff; border-color: var(--teal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 20%, transparent);
+}
+.namebox {
+  background: var(--surface); border: 1px solid var(--teal); border-radius: var(--radius);
+  padding: 1.2rem 1.4rem; box-shadow: var(--shadow);
+}
+.namebox .picked { font-family: var(--f-display); font-size: 1.6rem; color: var(--teal); font-weight: 600; }
+.namebox .picked small { font-family: var(--f-sans); font-size: .9rem; color: var(--ink-soft); font-weight: 400; }
+.namebox .why { margin: .5rem 0 0; color: var(--ink-soft); font-size: .96rem; }
+
+/* ---------- functional contact buttons ---------- */
+.who .links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; }
+.who .links a {
+  display: inline-flex; align-items: center; gap: .4em; text-decoration: none;
+  font-size: .82rem; font-weight: 600; padding: .45rem .8rem; border-radius: 8px;
+  border: 1px solid var(--hair); color: var(--ink);
+}
+.who .links a.wa { background: #25D366; color: #06331b; border-color: #25D366; }
+.who .links a:hover { border-color: var(--primary-br); }
+
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -379,13 +449,15 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
   </div>
 </nav>
 
+<div class="progress" id="progress" role="presentation"></div>
+
 <header class="hero" id="topo">
   <div class="wrap">
     <p class="eyebrow">Proposta de parceria de pesquisa · 2026</p>
     <h1>Quatro produtos reais como laboratório de pesquisa aplicada da&nbsp;UniAteneu.</h1>
     <p class="sub">A <strong>LaVita Code</strong> desenvolve e mantém em produção plataformas de saúde, engenharia e inteligência artificial. Propomos abrir esses produtos como campo de estágio, iniciação científica e publicação para alunos e professores da UniAteneu — com coautoria garantida, dados reais e presença em congressos.</p>
     <div class="cta-row">
-      <a class="btn btn--primary btn--big" href="#contato">Agendar conversa com a coordenação →</a>
+      <a class="btn btn--primary btn--big" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20vi%20a%20proposta%20de%20parceria%20UniAteneu%20%C3%97%20LaVita%20Code%20e%20quero%20conversar." target="_blank" rel="noopener">Falar agora no WhatsApp →</a>
       <a class="btn btn--ghost btn--big" href="#produtos">Conhecer os produtos</a>
     </div>
     <div class="resp">
@@ -550,11 +622,11 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
         <p class="lead">A Ayla mantém contexto ao longo do tempo, forma leitura própria e opera sob uma constituição interna de segurança: age no interesse de quem atende, nunca usa dado privado como alavanca, e trata a hipótese de consciência como questão de pesquisa — nunca como afirmação. Para um público acadêmico, isso é o mais interessante: há uma arquitetura de ética auditável para estudar.</p>
 
         <div class="note">
-          <strong>Nome de trabalho do produto clínico: “Prisma”.</strong> É a Ayla numa aplicação específica — um assistente de IA para <strong>triagem multimodal em saúde mental</strong>. O nome pode mudar; sugestões mais abaixo.
+          <strong>Nome do produto clínico: “Anamnésis” — por Ayla.</strong> É a Ayla numa aplicação específica: um assistente de IA para <strong>avaliação psiquiátrica multimodal</strong>. <em>Anamnese</em> é a palavra que todo psiquiatra usa para a coleta estruturada da história do paciente — e a entrevista multimodal é exatamente uma anamnese ampliada. Abaixo dá para testar outros nomes.
         </div>
 
-        <h3>O que o Prisma faz no atendimento</h3>
-        <p>Durante uma entrevista <strong>conduzida pelo profissional</strong>, o Prisma analisa <strong>fala, voz, vídeo e padrões de comportamento</strong> e devolve um mapa de <strong>padrões e divergências</strong> — por exemplo, quando o relato (“estou tranquilo”) diverge do corpo (ativação motora subindo sob pressão). A saída para o médico traz o domínio observado, a compatibilidade do padrão (escala 0–100), as evidências com marca de tempo e as contradições encontradas.</p>
+        <h3>O que o Anamnésis faz no atendimento</h3>
+        <p>Durante uma entrevista <strong>conduzida pelo profissional</strong>, o Anamnésis analisa <strong>fala, voz, vídeo e padrões de comportamento</strong> e devolve um mapa de <strong>padrões e divergências</strong> — por exemplo, quando o relato (“estou tranquilo”) diverge do corpo (ativação motora subindo sob pressão). A saída para o médico traz o domínio observado, a compatibilidade do padrão (escala 0–100), as evidências com marca de tempo e as contradições encontradas.</p>
 
         <div class="split">
           <div class="card yes">
@@ -581,33 +653,18 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
         <p>O piloto acontece num <strong>stand de demonstração científica</strong> em evento de Psicologia/Psiquiatria. Uma <strong>psiquiatra convidada</strong> conduz entrevistas curtas (roteiro de 20 min) com participantes voluntários e consentidos; a Ayla processa os sinais ao vivo; o resultado aparece para a médica como apoio. A base metodológica combina o <strong>DSM-5-TR Nível 1</strong> (13 domínios, varredura transdiagnóstica), o <strong>Exame do Estado Mental</strong> e o <strong>mhGAP</strong> da OMS — sem reproduzir nenhum instrumento na íntegra.</p>
         <p><strong>Papel dos alunos da UniAteneu:</strong> estagiários de Psicologia participam do recrutamento e consentimento, aplicam o checklist comportamental do Exame do Estado Mental, tabulam os dados e assinam como coautores. Objetivo do piloto: gerar massa de dados comparável entre participantes, medir a concordância entre o padrão da IA e o julgamento clínico, e produzir o primeiro artigo.</p>
 
-        <h3 style="margin-top:1.6rem">Sugestões de nome para o produto clínico</h3>
-        <div class="names">
-          <div class="nm rec">
-            <em>Recomendado</em>
-            <b>Prisma</b>
-            <span>Decompõe o que a pessoa mostra em vários sinais e devolve o espectro para o médico ler. Curto, técnico, sem promessa exagerada.</span>
-          </div>
-          <div class="nm">
-            <b>Aurora</b>
-            <span>“Primeira luz” — a entrevista é o começo do processo, não o fim. Calorosa, boa fonética ao lado de “Ayla”, não promete diagnóstico.</span>
-          </div>
-          <div class="nm">
-            <b>Clara</b>
-            <span>Transparência do método (“a IA mede, o médico decide”) no próprio nome. Curtíssimo e calmo.</span>
-          </div>
-          <div class="nm">
-            <b>Escuta</b>
-            <span>Remete à escuta clínica ampliada. Acolhedor, fala a língua da Psicologia.</span>
-          </div>
-          <div class="nm">
-            <b>Anamnese</b>
-            <span>“Anamnese by Ayla” — termo que todo clínico reconhece: coleta estruturada da história. Diz o que faz sem inflar.</span>
-          </div>
-          <div class="nm">
-            <b>Contraponto</b>
-            <span>Porque o núcleo é medir a divergência entre o que se diz e o que se mostra. Mais ousado.</span>
-          </div>
+        <h3 style="margin-top:1.6rem">Teste os nomes candidatos</h3>
+        <p style="font-size:.95rem;color:var(--ink-soft);margin-bottom:.2rem">Clique para comparar — a recomendação é <strong>Anamnésis</strong>.</p>
+        <div class="namepick" id="namepick" role="group" aria-label="Nomes candidatos para o produto clínico">
+          <button type="button" data-name="Anamnésis" data-tag="recomendado" data-why="A palavra que todo psiquiatra usa para a coleta estruturada da história. Vendável, internacionalmente legível, diz o que faz sem inflar. Marca: “Anamnésis · by Ayla”." aria-pressed="true">Anamnésis</button>
+          <button type="button" data-name="Prisma" data-tag="alternativa" data-why="Decompõe o que a pessoa mostra em vários sinais e devolve o espectro para o médico ler. Curto e técnico." aria-pressed="false">Prisma</button>
+          <button type="button" data-name="Lúcida" data-tag="alternativa" data-why="Lucidez e clareza da avaliação; feminino, ecoa “Ayla”. Sonoro e comercial." aria-pressed="false">Lúcida</button>
+          <button type="button" data-name="Acuidade" data-tag="alternativa" data-why="Precisão de percepção — posiciona como instrumento de observação fina." aria-pressed="false">Acuidade</button>
+          <button type="button" data-name="Contraponto" data-tag="mais ousada" data-why="O núcleo é medir a divergência entre o que se diz e o que se mostra. Marcante, porém menos óbvia." aria-pressed="false">Contraponto</button>
+        </div>
+        <div class="namebox" id="namebox" aria-live="polite">
+          <div class="picked">Anamnésis <small>· recomendado</small></div>
+          <p class="why">A palavra que todo psiquiatra usa para a coleta estruturada da história. Vendável, internacionalmente legível, diz o que faz sem inflar. Marca: “Anamnésis · by Ayla”.</p>
         </div>
       </div>
     </div>
@@ -620,7 +677,7 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
       <h2>Vamos marcar 30 minutos com a reitoria e as coordenações?</h2>
       <p>Levamos os quatro produtos rodando ao vivo e um rascunho de convênio. Sem compromisso.</p>
     </div>
-    <a class="btn btn--primary btn--big" href="#contato">Agendar conversa →</a>
+    <a class="btn btn--primary btn--big" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20quero%20agendar%20a%20conversa%20sobre%20a%20parceria%20UniAteneu%20%C3%97%20LaVita." target="_blank" rel="noopener">Agendar no WhatsApp →</a>
   </div>
 </aside>
 
@@ -650,12 +707,12 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
       <div class="card reveal">
         <h3>1 · Investimento para manter a infraestrutura</h3>
         <p>Aporte <strong>mensal ou anual</strong> para cobrir servidores, banco de dados, APIs de voz e o ambiente de produção que sustentam os quatro produtos e o laboratório de pesquisa.</p>
-        <p style="margin-bottom:0"><span class="fillme">R$ ____ /mês</span> &nbsp;— valor a definir na reunião de alinhamento, conforme escopo de cursos e nº de vagas.</p>
+        <p style="margin-bottom:0"><span class="fillme">R$ 6.000 / mês</span> &nbsp;— cobre servidores, banco de dados, APIs de voz e o ambiente de produção dos quatro produtos. Contrato anual, revisável conforme o número de cursos e vagas.</p>
       </div>
       <div class="card reveal">
         <h3>2 · Patrocínio do stand no evento de Psiquiatria</h3>
-        <p>Cota para montar e operar o <strong>stand de demonstração científica</strong> do piloto Prisma: estrutura física, credenciamento, material impresso, deslocamento e diária da psiquiatra convidada, equipamento de captação.</p>
-        <p style="margin-bottom:0"><span class="fillme">R$ ____ (cota única)</span> &nbsp;— orçamento fechado após definição do evento e da data.</p>
+        <p>Cota para montar e operar o <strong>stand de demonstração científica</strong> do piloto clínico (Anamnésis): estrutura física, credenciamento, material impresso, deslocamento e diária da psiquiatra convidada, equipamento de captação.</p>
+        <p style="margin-bottom:0"><span class="fillme">Cota a definir</span> &nbsp;— orçamento fechado após confirmação do evento e da data com a organização. Cobre estrutura do stand, credenciamento, material impresso e a diária da psiquiatra convidada.</p>
       </div>
     </div>
     <div class="card dont reveal" style="margin-top:1.4rem">
@@ -735,15 +792,23 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
         <b>Rafael Dias</b>
         <span>Coordenação técnica — IA, engenharia de software e produto</span>
         <span>LaVita Code</span>
+        <div class="links">
+          <a class="wa" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20sobre%20a%20parceria%20UniAteneu%20%C3%97%20LaVita." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="tel:+5585994448858">(85) 99444-8858</a>
+        </div>
       </div>
       <div class="who">
         <b>Leandro Tadeu</b>
         <span>Coordenação de pesquisa e articulação institucional</span>
         <span>LaVita Code</span>
+        <div class="links">
+          <a class="wa" href="https://wa.me/5585998172345?text=Ol%C3%A1%20Leandro%2C%20sobre%20a%20parceria%20UniAteneu%20%C3%97%20LaVita." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="tel:+5585998172345">(85) 99817-2345</a>
+        </div>
       </div>
     </div>
     <div class="cta-row" style="margin-top:1.8rem">
-      <a class="btn btn--primary btn--big" href="#topo">Agendar a reunião com a coordenação →</a>
+      <a class="btn btn--primary btn--big" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20quero%20agendar%20a%20reuni%C3%A3o%20com%20a%20coordena%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar a reunião →</a>
     </div>
   </div>
 </section>
@@ -831,6 +896,72 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     secs.forEach(function (s) { if (s) sio.observe(s); });
+  }
+
+  /* ---- barra de progresso + botão voltar ao topo ---- */
+  var bar = document.getElementById("progress");
+  var fab = document.createElement("button");
+  fab.className = "fab";
+  fab.type = "button";
+  fab.setAttribute("aria-label", "Voltar ao topo");
+  fab.innerHTML = "&uarr;";
+  fab.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
+  document.body.appendChild(fab);
+  var ticking = false;
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    if (bar) bar.style.width = p.toFixed(1) + "%";
+    fab.classList.toggle("show", h.scrollTop > 600);
+    ticking = false;
+  }
+  addEventListener("scroll", function () {
+    if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
+  onScroll();
+
+  /* ---- accordions: dobra "pesquisa na prática" de cada produto ---- */
+  document.querySelectorAll(".product .research").forEach(function (res, i) {
+    var btn = document.createElement("button");
+    btn.className = "acc-btn";
+    btn.type = "button";
+    btn.setAttribute("aria-expanded", "false");
+    var pid = "acc-panel-" + i;
+    btn.setAttribute("aria-controls", pid);
+    btn.innerHTML = '<span class="caret" aria-hidden="true">&#9656;</span> Ver pesquisa na prática';
+    var panel = document.createElement("div");
+    panel.className = "acc-panel";
+    panel.id = pid;
+    var inner = document.createElement("div");
+    res.parentNode.insertBefore(btn, res);
+    res.parentNode.insertBefore(panel, res);
+    inner.appendChild(res);
+    panel.appendChild(inner);
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      panel.classList.toggle("open", !open);
+      btn.lastChild.textContent = open ? " Ver pesquisa na prática" : " Ocultar pesquisa na prática";
+    });
+  });
+
+  /* ---- seletor interativo de nome ---- */
+  var pick = document.getElementById("namepick");
+  var box = document.getElementById("namebox");
+  if (pick && box) {
+    pick.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-name]");
+      if (!b) return;
+      pick.querySelectorAll("button").forEach(function (x) {
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      box.querySelector(".picked").innerHTML =
+        b.dataset.name + ' <small>&middot; ' + b.dataset.tag + "</small>";
+      box.querySelector(".why").textContent = b.dataset.why;
+    });
   }
 })();
 </script>
