@@ -4,665 +4,674 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dossiê de Produto — LaVita Code</title>
-<meta name="description" content="Os quatro produtos da LaVita Code lidos pelo framework de 8 camadas: descoberta, proposta de valor, modelo de negócio, identidade, jornada, telas, sistema, implementação." />
+<meta name="description" content="Os quatro produtos da LaVita Code auditados pelo framework de 8 camadas — com o estado de cada gate por produto." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
 
 <style>
-:root {
-  --ground:#F5F8FA; --surface:#FFFFFF; --surface-2:#ECF2F7;
-  --ink:#10222F; --ink-soft:#46606F; --hair:#DAE3EB;
-  --primary:#0E5FA6; --primary-br:#1CA0DB;
-  --green:#2F9E41; --amber:#D9920F; --teal:#0E7C74; --forja:#3B4A73; --lavita:#1F6FB2;
+:root{
+  --ground:#F5F8FA;--surface:#FFFFFF;--surface-2:#ECF2F7;
+  --ink:#10222F;--ink-soft:#46606F;--hair:#DAE3EB;
+  --primary:#0E5FA6;--primary-br:#1CA0DB;
+  --green:#2F9E41;--amber:#C97F0A;--teal:#0E7C74;--forja:#3B4A73;--lavita:#1F6FB2;
   --shadow:0 1px 2px rgba(16,34,47,.06),0 8px 24px rgba(16,34,47,.07);
-  --shadow-lg:0 2px 8px rgba(16,34,47,.08),0 24px 60px rgba(16,34,47,.12);
-  --radius:16px; --radius-sm:10px; --maxw:1100px;
+  --radius:14px;--radius-sm:9px;--maxw:1060px;
   --f-display:"Fraunces",Georgia,serif;
   --f-sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --ground:#0B1621;--surface:#10202C;--surface-2:#172A38;--ink:#E7EFF4;--ink-soft:#92A8B5;--hair:#223846;
-  --primary:#2E93CF;--primary-br:#4FB6E6;--green:#45B857;--amber:#EDAE43;--teal:#3FB1A7;--forja:#8B98C6;--lavita:#4C9BD8;
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0B1621;--surface:#10202C;--surface-2:#172A38;--ink:#E7EFF4;--ink-soft:#93A9B6;--hair:#223846;
+  --primary:#2E93CF;--primary-br:#4FB6E6;--green:#45B857;--amber:#E0A64B;--teal:#3FB1A7;--forja:#8B98C6;--lavita:#4C9BD8;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
-  --shadow-lg:0 2px 10px rgba(0,0,0,.45),0 30px 70px rgba(0,0,0,.5);
 }}
 :root[data-theme="dark"]{
-  --ground:#0B1621;--surface:#10202C;--surface-2:#172A38;--ink:#E7EFF4;--ink-soft:#92A8B5;--hair:#223846;
-  --primary:#2E93CF;--primary-br:#4FB6E6;--green:#45B857;--amber:#EDAE43;--teal:#3FB1A7;--forja:#8B98C6;--lavita:#4C9BD8;
+  --ground:#0B1621;--surface:#10202C;--surface-2:#172A38;--ink:#E7EFF4;--ink-soft:#93A9B6;--hair:#223846;
+  --primary:#2E93CF;--primary-br:#4FB6E6;--green:#45B857;--amber:#E0A64B;--teal:#3FB1A7;--forja:#8B98C6;--lavita:#4C9BD8;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
-  --shadow-lg:0 2px 10px rgba(0,0,0,.45),0 30px 70px rgba(0,0,0,.5);
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;scroll-padding-top:118px;}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 body{margin:0;font-family:var(--f-sans);font-size:16.5px;line-height:1.62;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;}
-h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;line-height:1.14;text-wrap:balance;margin:0;letter-spacing:-.01em;}
-h1{font-size:clamp(2rem,5vw,3.1rem);}
-h2{font-size:clamp(1.55rem,3.4vw,2.2rem);}
-h3{font-size:1.2rem;}
-h4{font-size:1rem;letter-spacing:0;}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0;letter-spacing:-.01em;}
+h1{font-size:clamp(2rem,5vw,3rem);}
+h2{font-size:clamp(1.5rem,3.4vw,2.15rem);}
+h3{font-size:1.18rem;}
+h4{font-size:.98rem;letter-spacing:0;}
 p{margin:0 0 .9rem;}
 a{color:var(--primary);text-underline-offset:3px;}
 strong{font-weight:600;}
 .eyebrow{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--primary-br);margin:0 0 .8rem;display:inline-flex;align-items:center;gap:.6em;}
 .eyebrow::before{content:"";width:24px;height:2px;background:currentColor;}
-.wrap{width:min(100% - 2.4rem,var(--maxw));margin-inline:auto;}
+.wrap{width:min(100% - 2.2rem,var(--maxw));margin-inline:auto;}
 
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary-br),var(--green));z-index:60;transition:width .1s linear;}
+.topbar{background:var(--surface);border-bottom:1px solid var(--hair);}
+.topbar .wrap{display:flex;align-items:center;gap:1rem;height:56px;}
+.topbar b{font-family:var(--f-display);font-size:1rem;}
+.topbar .muted{font-size:.9rem;color:var(--ink-soft);}
+.topbar a.back{margin-left:auto;font-size:.84rem;font-weight:600;text-decoration:none;color:var(--ink-soft);border:1px solid var(--hair);padding:.4rem .8rem;border-radius:8px;}
+.topbar a.back:hover{color:var(--primary);border-color:var(--primary-br);}
+.topbar button{border:1px solid var(--hair);background:var(--surface);color:var(--ink-soft);width:36px;height:36px;border-radius:9px;cursor:pointer;font-size:1rem;}
 
-/* nav */
-.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);}
-.nav__in{display:flex;align-items:center;gap:1rem;height:58px;}
-.nav__in b{font-family:var(--f-display);font-size:1rem;}
-.nav__in .sep{color:var(--ink-soft);}
-.nav__in a.home{margin-left:auto;font-size:.84rem;font-weight:600;text-decoration:none;color:var(--ink-soft);border:1px solid var(--hair);padding:.4rem .8rem;border-radius:8px;}
-.nav__in a.home:hover{color:var(--primary);border-color:var(--primary-br);}
-.themebtn{border:1px solid var(--hair);background:var(--surface);color:var(--ink-soft);width:36px;height:36px;border-radius:9px;cursor:pointer;display:grid;place-items:center;}
-.themebtn:hover{color:var(--ink);border-color:var(--primary-br);}
-
-/* product switcher */
-.switch{position:sticky;top:58px;z-index:49;background:var(--ground);border-bottom:1px solid var(--hair);}
-.switch__in{display:flex;gap:.4rem;padding:.6rem 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-.switch__in::-webkit-scrollbar{display:none;}
-.switch a{white-space:nowrap;font-size:.86rem;font-weight:600;text-decoration:none;color:var(--ink-soft);padding:.45rem .9rem;border-radius:999px;border:1px solid var(--hair);background:var(--surface);}
-.switch a:hover{color:var(--ink);}
-.switch a.active{color:#fff;background:var(--key,var(--primary));border-color:var(--key,var(--primary));}
-.switch a[data-k="bcm"]{--key:var(--green);}
-.switch a[data-k="vigora"]{--key:var(--primary-br);}
-.switch a[data-k="forja"]{--key:var(--forja);}
-.switch a[data-k="anamnesis"]{--key:var(--teal);}
-.switch a[data-k="uniateneu"]{--key:var(--amber);}
-
-/* hero */
-.hero{padding:clamp(2.4rem,6vw,4rem) 0 clamp(2rem,4vw,3rem);}
+.hero{padding:clamp(2.4rem,6vw,3.6rem) 0 1.4rem;}
 .hero h1{max-width:20ch;margin-bottom:1rem;}
-.hero p{max-width:60ch;color:var(--ink-soft);font-size:1.08rem;}
+.hero p{max-width:62ch;color:var(--ink-soft);font-size:1.06rem;}
 
-/* method strip */
-.method{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;margin-top:1.6rem;}
-.method div{background:var(--surface);padding:1rem 1.1rem;}
+.index{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.4rem 0 0;}
+.index a{font-size:.86rem;font-weight:600;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--hair);border-radius:999px;padding:.45rem 1rem;}
+.index a:hover{border-color:var(--primary-br);color:var(--primary);}
+
+section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
+.lead{max-width:64ch;color:var(--ink-soft);}
+
+/* método */
+.method{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;margin-top:1.4rem;}
+.method div{background:var(--surface);padding:.9rem 1rem;}
 .method .c{font-family:var(--f-mono);font-size:.72rem;color:var(--primary-br);font-weight:600;}
-.method .t{font-family:var(--f-display);font-size:1rem;margin:.2rem 0 .15rem;}
-.method .d{font-size:.82rem;color:var(--ink-soft);}
-@media (max-width:820px){.method{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:460px){.method{grid-template-columns:1fr;}}
+.method .t{font-family:var(--f-display);font-size:.98rem;margin:.15rem 0;}
+.method .d{font-size:.8rem;color:var(--ink-soft);}
+@media (max-width:800px){.method{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:440px){.method{grid-template-columns:1fr;}}
 
-/* product section */
-.product{border-top:1px solid var(--hair);padding:clamp(2.6rem,6vw,4.5rem) 0;}
-.product__banner{border-left:5px solid var(--key);background:color-mix(in srgb,var(--key) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--key) 24%,var(--hair));border-left-width:5px;border-radius:0 var(--radius) var(--radius) 0;padding:1.4rem 1.5rem;margin-bottom:1.8rem;}
-.product.bcm{--key:var(--green);}
-.product.vigora{--key:var(--primary-br);}
-.product.forja{--key:var(--forja);}
-.product.anamnesis{--key:var(--teal);}
-.product.uniateneu{--key:var(--amber);}
-.product__banner h2{margin-bottom:.35rem;}
-.product__banner .tag{font-family:var(--f-mono);font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--key);}
-.product__banner p{margin:.5rem 0 0;color:var(--ink-soft);max-width:66ch;}
+/* matriz de maturidade */
+.matrixwrap{overflow-x:auto;margin-top:1.4rem;}
+table.matrix{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem;}
+table.matrix th,table.matrix td{border:1px solid var(--hair);padding:.6rem .7rem;text-align:center;}
+table.matrix th:first-child,table.matrix td:first-child{text-align:left;white-space:nowrap;font-weight:600;}
+table.matrix thead th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);background:var(--surface-2);}
+.g{display:inline-block;font-weight:700;font-family:var(--f-mono);}
+.g.ok{color:var(--green);}
+.g.part{color:var(--amber);}
+.g.open{color:var(--ink-soft);}
+.legend{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:.8rem;font-size:.85rem;color:var(--ink-soft);}
 
-/* layer block */
-.layer{border:1px solid var(--hair);border-radius:var(--radius);background:var(--surface);margin-bottom:1rem;box-shadow:var(--shadow);overflow:hidden;}
-.layer > summary{list-style:none;cursor:pointer;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.9rem;}
-.layer > summary::-webkit-details-marker{display:none;}
-.layer .cno{font-family:var(--f-mono);font-weight:600;font-size:.8rem;color:#fff;background:var(--key);width:2.1rem;height:2.1rem;border-radius:8px;display:grid;place-items:center;flex-shrink:0;}
-.layer .ctitle{font-family:var(--f-display);font-size:1.08rem;font-weight:600;}
-.layer .cframe{font-size:.8rem;color:var(--ink-soft);font-family:var(--f-mono);margin-left:auto;text-align:right;}
-.layer .caret{transition:transform .2s ease;color:var(--ink-soft);flex-shrink:0;}
-.layer[open] .caret{transform:rotate(90deg);}
-.layer__body{padding:0 1.3rem 1.35rem;border-top:1px solid var(--hair);}
-.layer__body > *:first-child{margin-top:1.1rem;}
-.layer__body h4{margin:1.1rem 0 .3rem;color:var(--key);font-family:var(--f-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;}
-.layer__body ul{margin:.2rem 0 .6rem;padding-left:1.15rem;}
-.layer__body li{margin-bottom:.35rem;font-size:.95rem;}
-.layer__body p{font-size:.96rem;}
-@media (max-width:620px){.layer .cframe{display:none;}}
+/* produto */
+.product{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
+.banner{border-left:5px solid var(--key);background:color-mix(in srgb,var(--key) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--key) 24%,var(--hair));border-left-width:5px;border-radius:0 var(--radius) var(--radius) 0;padding:1.3rem 1.4rem;margin-bottom:1.6rem;}
+#bcm{--key:var(--green);}#vigora{--key:var(--primary-br);}#forja{--key:var(--forja);}#anamnesis{--key:var(--teal);}#uniateneu{--key:var(--amber);}
+.banner .tag{font-family:var(--f-mono);font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--key);}
+.banner h2{margin:.35rem 0;}
+.banner p{margin:.4rem 0 0;color:var(--ink-soft);max-width:66ch;}
 
-.posit{font-family:var(--f-display);font-style:italic;font-size:1.05rem;background:color-mix(in srgb,var(--key) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--key) 28%,transparent);border-left:4px solid var(--key);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.15rem;margin:.8rem 0;}
-.posit::before{content:"Posicionamento — Para X que Y, o produto é Z; diferente de A, nós B";display:block;font-family:var(--f-mono);font-style:normal;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--key);margin-bottom:.4rem;}
+details.layer{border:1px solid var(--hair);border-radius:var(--radius);background:var(--surface);margin-bottom:.8rem;box-shadow:var(--shadow);}
+details.layer > summary{list-style:none;cursor:pointer;padding:1rem 1.2rem;display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;}
+details.layer > summary::-webkit-details-marker{display:none;}
+details.layer > summary::after{content:"+";margin-left:auto;font-family:var(--f-mono);color:var(--ink-soft);font-size:1.1rem;}
+details.layer[open] > summary::after{content:"–";}
+.cno{font-family:var(--f-mono);font-weight:600;font-size:.78rem;color:#fff;background:var(--key);min-width:2.6rem;height:1.8rem;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;padding:0 .4rem;}
+.ctitle{font-family:var(--f-display);font-size:1.06rem;font-weight:600;}
+.gate{font-family:var(--f-mono);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:.25em .6em;border-radius:999px;border:1px solid;}
+.gate.ok{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,transparent);background:color-mix(in srgb,var(--green) 12%,transparent);}
+.gate.part{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 45%,transparent);background:color-mix(in srgb,var(--amber) 12%,transparent);}
+.gate.open{color:var(--ink-soft);border-color:var(--hair);background:var(--surface-2);}
+.lbody{padding:0 1.2rem 1.3rem;border-top:1px solid var(--hair);}
+.lbody > *:first-child{margin-top:1rem;}
+.lbody h4{margin:1rem 0 .3rem;color:var(--key);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;}
+.lbody ul{margin:.2rem 0 .6rem;padding-left:1.15rem;}
+.lbody li{margin-bottom:.35rem;font-size:.95rem;}
+.lbody p{font-size:.96rem;}
 
-.vpc{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:.6rem 0;}
-@media (max-width:640px){.vpc{grid-template-columns:1fr;}}
-.vpc .col{background:var(--surface-2);border-radius:var(--radius-sm);padding:1rem 1.1rem;}
-.vpc .col h5{margin:0 0 .4rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
+.posit{font-family:var(--f-display);font-style:italic;font-size:1.04rem;background:color-mix(in srgb,var(--key) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--key) 26%,transparent);border-left:4px solid var(--key);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:.9rem 1.1rem;margin:.8rem 0;}
+.posit::before{content:"Posicionamento (Para X que Y, é Z; diferente de A, nós B)";display:block;font-family:var(--f-mono);font-style:normal;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--key);margin-bottom:.35rem;}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.6rem 0;}
+@media (max-width:640px){.two{grid-template-columns:1fr;}}
+.two .box{background:var(--surface-2);border-radius:var(--radius-sm);padding:.9rem 1rem;}
+.two .box h5{margin:0 0 .35rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;}
+.two .box p{font-size:.9rem;margin:0 0 .5rem;}
+.two .box p:last-child{margin-bottom:0;}
 
 .canvas{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--radius-sm);overflow:hidden;margin:.6rem 0;}
-.canvas div{background:var(--surface);padding:.8rem .85rem;font-size:.86rem;}
-.canvas div b{display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--key);margin-bottom:.3rem;}
-.canvas .w2{grid-column:span 2;}
-.canvas .w3{grid-column:span 3;}
-@media (max-width:820px){.canvas{grid-template-columns:repeat(2,1fr);}.canvas .w2,.canvas .w3{grid-column:span 2;}}
+.canvas div{background:var(--surface);padding:.75rem .8rem;font-size:.85rem;}
+.canvas div b{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--key);margin-bottom:.3rem;}
+.canvas .w2{grid-column:span 2;}.canvas .w3{grid-column:span 3;}
+@media (max-width:800px){.canvas{grid-template-columns:repeat(2,1fr);}.canvas .w2,.canvas .w3{grid-column:span 2;}}
 
-.aha{background:color-mix(in srgb,var(--amber) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 40%,transparent);border-radius:var(--radius-sm);padding:1rem 1.15rem;margin:.7rem 0;}
+.aha{background:color-mix(in srgb,var(--amber) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 38%,transparent);border-radius:var(--radius-sm);padding:.9rem 1.1rem;margin:.7rem 0;font-size:.95rem;}
 .aha b{color:var(--amber);}
-
-.persona{border:1px dashed var(--hair);border-radius:var(--radius-sm);padding:.9rem 1.1rem;margin:.6rem 0;font-size:.94rem;}
+.todo{border-left:3px solid var(--amber);padding-left:.9rem;margin:.7rem 0;font-size:.92rem;color:var(--ink-soft);}
+.todo b{color:var(--ink);}
+.persona{border:1px dashed var(--hair);border-radius:var(--radius-sm);padding:.85rem 1rem;margin:.6rem 0;font-size:.92rem;}
 .persona b{font-family:var(--f-display);}
 
-table.br{width:100%;border-collapse:collapse;font-size:.9rem;margin:.6rem 0;}
-table.br th,table.br td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--hair);vertical-align:top;}
-table.br th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);}
 .tablewrap{overflow-x:auto;}
-
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
-.reveal.in{opacity:1;transform:none;}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+table.br{width:100%;border-collapse:collapse;font-size:.88rem;margin:.5rem 0;min-width:520px;}
+table.br th,table.br td{text-align:left;padding:.5rem .65rem;border-bottom:1px solid var(--hair);vertical-align:top;}
+table.br th{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
 
 .footer{border-top:1px solid var(--hair);background:var(--surface);}
-.footer .wrap{padding:2.4rem 0;}
+.footer .wrap{padding:2.2rem 0;}
 .footer small{color:var(--ink-soft);font-size:.8rem;}
-.fab{position:fixed;right:1.4rem;bottom:1.4rem;width:46px;height:46px;border-radius:50%;border:1px solid var(--hair);background:var(--primary);color:#fff;font-size:1.2rem;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s;z-index:55;}
-.fab.show{opacity:1;transform:none;pointer-events:auto;}
 :focus-visible{outline:3px solid var(--primary-br);outline-offset:2px;border-radius:4px;}
 </style>
 
-<div class="progress" id="progress"></div>
-
-<nav class="nav">
-  <div class="wrap nav__in">
-    <b>LaVita&nbsp;Code</b><span class="sep">·</span><span style="font-size:.9rem;color:var(--ink-soft)">Dossiê de Produto</span>
-    <a class="home" href="./index.html">← Proposta UniAteneu</a>
-    <button class="themebtn" id="themebtn" aria-label="Alternar tema">◐</button>
-  </div>
-</nav>
-
-<div class="switch">
-  <div class="wrap switch__in" id="switch">
-    <a data-k="bcm" href="#bcm">BCM</a>
-    <a data-k="vigora" href="#vigora">Vigora</a>
-    <a data-k="forja" href="#forja">Forja</a>
-    <a data-k="anamnesis" href="#anamnesis">Anamnésis</a>
-    <a data-k="uniateneu" href="#uniateneu">Onde a UniAteneu entra</a>
+<div class="topbar">
+  <div class="wrap">
+    <b>LaVita&nbsp;Code</b><span class="muted">· Dossiê de Produto</span>
+    <a class="back" href="./index.html">← Proposta UniAteneu</a>
+    <button id="themebtn" type="button" aria-label="Alternar tema">◐</button>
   </div>
 </div>
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Método de produto · 8 camadas</p>
-    <h1>Os quatro produtos, lidos camada por camada.</h1>
-    <p>Cada produto da LaVita Code passa pelo mesmo framework: da descoberta do problema até a implementação. Este dossiê abre as camadas <strong>C1 a C5</strong> em detalhe (descoberta, proposta de valor, modelo de negócio, identidade, jornada) e resume o estado de <strong>C6 a C8</strong> (telas, sistema, implementação). É a base para editais, TCCs de negócio e a discussão com a UniAteneu.</p>
-    <div class="method">
-      <div><span class="c">C1</span><div class="t">Descoberta</div><div class="d">JTBD + Problem Frame — por que o produto existe</div></div>
-      <div><span class="c">C2</span><div class="t">Proposta de valor</div><div class="d">Value Proposition Canvas — jobs, dores, ganhos × analgésicos</div></div>
-      <div><span class="c">C3</span><div class="t">Modelo de negócio</div><div class="d">Lean Canvas + pricing baseado em valor</div></div>
-      <div><span class="c">C4</span><div class="t">Identidade</div><div class="d">Brand Personality (Aaker) + tom de voz</div></div>
-      <div><span class="c">C5</span><div class="t">Jornada</div><div class="d">User Story Mapping + AHA moment + regras de negócio</div></div>
-      <div><span class="c">C6</span><div class="t">Telas</div><div class="d">Wireflow → mockup navegável (estado atual)</div></div>
-      <div><span class="c">C7</span><div class="t">Sistema</div><div class="d">C4 Model + ADR (estado atual)</div></div>
-      <div><span class="c">C8</span><div class="t">Implementação</div><div class="d">TDD + walking skeleton + releases (estado atual)</div></div>
-    </div>
+    <p class="eyebrow">Framework de produto · 8 camadas · auditoria</p>
+    <h1>Os quatro produtos, auditados camada por camada.</h1>
+    <p>Este documento aplica o framework de produto de 8 camadas da LaVita a cada produto e mostra, com honestidade, <strong>o estado de cada gate</strong>: o que está fechado, o que está parcial e o que ainda é trabalho aberto. As lacunas não são falhas — são exatamente as frentes de pesquisa que a UniAteneu pode conduzir.</p>
+    <nav class="index">
+      <a href="#metodo">O método</a>
+      <a href="#matriz">Matriz de maturidade</a>
+      <a href="#bcm">BCM</a>
+      <a href="#vigora">Vigora</a>
+      <a href="#forja">Forja</a>
+      <a href="#anamnesis">Anamnésis</a>
+      <a href="#uniateneu">Onde a UniAteneu entra</a>
+    </nav>
   </div>
 </header>
 
-<!-- ============ BCM ============ -->
-<section class="product bcm" id="bcm">
+<section id="metodo">
   <div class="wrap">
-    <div class="product__banner reveal">
+    <p class="eyebrow">O método</p>
+    <h2>As 8 camadas e seus gates.</h2>
+    <p class="lead">Cada camada tem um gate de saída — uma condição objetiva que precisa estar satisfeita antes de descer para a próxima. O custo de mudança cresce a cada camada.</p>
+    <div class="method">
+      <div><span class="c">C1</span><div class="t">Descoberta</div><div class="d">JTBD + Problem Frame · gate: o público reconhece o problema como real</div></div>
+      <div><span class="c">C2</span><div class="t">Proposta de valor</div><div class="d">Value Proposition Canvas · gate: o público diz “é isso que eu preciso”</div></div>
+      <div><span class="c">C3</span><div class="t">Modelo de negócio</div><div class="d">Lean Canvas + pricing por valor · gate: explica o lucro em 30 s</div></div>
+      <div><span class="c">C4</span><div class="t">Identidade</div><div class="d">Brand Personality (Aaker) · gate: em 5 s descrevem o que o produto faz</div></div>
+      <div><span class="c">C5</span><div class="t">Jornada</div><div class="d">User Story Mapping + AHA · gate: filmar o usuário do início ao fim sem lacuna</div></div>
+      <div><span class="c">C6</span><div class="t">Telas</div><div class="d">Wireflow → mockup · gate: o usuário atinge o objetivo sem ajuda</div></div>
+      <div><span class="c">C7</span><div class="t">Sistema</div><div class="d">C4 Model + ADR · gate: dev novo entende sem perguntar</div></div>
+      <div><span class="c">C8</span><div class="t">Implementação</div><div class="d">TDD + walking skeleton · gate: release com métrica de sucesso observável</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="matriz">
+  <div class="wrap">
+    <p class="eyebrow">Matriz de maturidade</p>
+    <h2>Onde cada produto está — e onde a pesquisa entra.</h2>
+    <p class="lead">Leitura honesta do estado de cada gate. As células <span class="g part">◐</span> e <span class="g open">○</span> são o backlog de pesquisa da parceria.</p>
+    <div class="matrixwrap">
+      <table class="matrix">
+        <thead><tr><th>Camada</th><th>BCM</th><th>Vigora</th><th>Forja</th><th>Anamnésis</th></tr></thead>
+        <tbody>
+          <tr><td>C1 Descoberta</td><td><span class="g part">◐</span></td><td><span class="g ok">✓</span></td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td></tr>
+          <tr><td>C2 Proposta de valor</td><td><span class="g part">◐</span></td><td><span class="g ok">✓</span></td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td></tr>
+          <tr><td>C3 Modelo de negócio</td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td><td><span class="g open">○</span></td><td><span class="g open">○</span></td></tr>
+          <tr><td>C4 Identidade</td><td><span class="g ok">✓</span></td><td><span class="g ok">✓</span></td><td><span class="g part">◐</span></td><td><span class="g ok">✓</span></td></tr>
+          <tr><td>C5 Jornada</td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td></tr>
+          <tr><td>C6 Telas</td><td><span class="g part">◐</span></td><td><span class="g ok">✓</span></td><td><span class="g open">○</span></td><td><span class="g open">○</span></td></tr>
+          <tr><td>C7 Sistema</td><td><span class="g ok">✓</span></td><td><span class="g ok">✓</span></td><td><span class="g part">◐</span></td><td><span class="g part">◐</span></td></tr>
+          <tr><td>C8 Implementação</td><td><span class="g part">◐</span></td><td><span class="g ok">✓</span></td><td><span class="g part">◐</span></td><td><span class="g open">○</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><span class="g ok">✓</span> fechado — gate satisfeito</span>
+      <span><span class="g part">◐</span> parcial — feito, falta validação formal</span>
+      <span><span class="g open">○</span> aberto — trabalho de pesquisa a fazer</span>
+    </div>
+  </div>
+</section>
+
+<!-- BCM -->
+<article class="product" id="bcm">
+  <div class="wrap">
+    <div class="banner">
       <span class="tag">Clínico · em piloto · Psicologia / desenvolvimento infantil</span>
       <h2>BCM — Behavioral Clinical Model</h2>
-      <p>Plataforma que integra avaliação, plano individual (PEI), jogos terapêuticos, comunicação alternativa com voz em português e acompanhamento mensurável — fundamentada em Análise do Comportamento Aplicada (ABA). Aceita múltiplos instrumentos de avaliação (EPS-PCA, ABC, AFCE, VB-MAPP, Mini-Assessment, FCT).</p>
+      <p>Plataforma que integra avaliação, plano individual (PEI), jogos terapêuticos, comunicação alternativa com voz em português e acompanhamento mensurável — fundamentada em Análise do Comportamento Aplicada (ABA). Aceita múltiplos instrumentos (EPS-PCA, ABC, AFCE, VB-MAPP, Mini-Assessment, FCT).</p>
     </div>
 
-    <details class="layer reveal" open>
-      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="cframe">JTBD · Problem Frame</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <h4>Job principal (funcional)</h4>
+    <details class="layer" open>
+      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
+        <h4>Job principal (JTBD)</h4>
         <p>“Quando acompanho o desenvolvimento de uma criança, quero que avaliação, plano, intervenção e evidência estejam conectados — para comprovar progresso e decidir com dados, sem remontar tudo a cada sessão.”</p>
         <h4>Jobs emocionais e sociais</h4>
         <ul>
-          <li><strong>Emocional:</strong> sentir que o trabalho clínico é levado a sério; não temer auditoria ou glosa de plano de saúde; mostrar à família que há evolução.</li>
-          <li><strong>Social:</strong> ser reconhecido como profissional rigoroso; a clínica ou escola ser vista como organizada.</li>
+          <li><strong>Emocional:</strong> não temer auditoria ou glosa de plano de saúde; mostrar à família que há evolução.</li>
+          <li><strong>Social:</strong> ser reconhecido como profissional rigoroso; a clínica ser vista como organizada.</li>
         </ul>
-        <h4>Problem Frame (1 página)</h4>
-        <table class="br"><tbody>
+        <h4>Problem Frame</h4>
+        <div class="tablewrap"><table class="br"><tbody>
           <tr><th>Problema</th><td>Cuidado infantil fragmentado — avaliação, rotina, comunicação, jogos e intervenção em ferramentas desconectadas; plano pouco operacionalizado; progresso invisível.</td></tr>
-          <tr><th>Para quem</th><td>Terapeutas ABA autônomos, clínicas multidisciplinares, escolas com atendimento educacional especializado, redes municipais de saúde e educação.</td></tr>
-          <tr><th>Como resolvem hoje</th><td>Planilhas + PDFs soltos + apps de jogos genéricos + prontuário de texto; muito trabalho manual de costura entre sistemas.</td></tr>
-          <tr><th>Nossa diferença</th><td>Integração real — cada instrumento alimenta o próximo — com rastreabilidade jurídica: hash SHA-256, assinatura digital, logs imutáveis, IOA e Kappa de Cohen automáticos.</td></tr>
-          <tr><th>Medida de sucesso</th><td>Nº de metas que atingem maestria (85% em 3 sessões); redução do tempo de elaboração de relatório; % de generalização casa ↔ clínica.</td></tr>
-          <tr><th>Risco</th><td>Adoção exige mudança de fluxo do profissional; mercado já educado por ferramentas parciais.</td></tr>
-        </tbody></table>
-        <div class="persona"><b>Persona — “Marina”, analista do comportamento.</b> 3 anos de formada, atende 12 crianças em consultório + 1 escola. Dor crítica: passa domingos montando relatório e PEI no Word; plano de saúde glosa por falta de IOA. Ganho desejado: relatório sai da própria telemetria. Disposição a pagar: já gasta ~R$ 200–300/mês em ferramentas soltas.</div>
-        <p><strong>Gate C1:</strong> ✓ a frase de problema é reconhecida como real por analistas do comportamento e coordenações de clínica.</p>
+          <tr><th>Para quem</th><td>Terapeutas ABA autônomos, clínicas multidisciplinares, escolas com AEE, redes municipais.</td></tr>
+          <tr><th>Como resolvem hoje</th><td>Planilhas + PDFs soltos + apps de jogos genéricos + prontuário de texto — costura manual.</td></tr>
+          <tr><th>Nossa diferença</th><td>Integração real (cada instrumento alimenta o próximo) + rastreabilidade jurídica: hash SHA-256, assinatura digital, logs imutáveis, IOA e Kappa automáticos.</td></tr>
+          <tr><th>Medida de sucesso</th><td>Nº de metas em maestria (85%/3 sessões); tempo de elaboração de relatório; % de generalização casa ↔ clínica.</td></tr>
+        </tbody></table></div>
+        <div class="persona"><b>Persona — “Marina”, analista do comportamento.</b> 3 anos de formada, 12 crianças + 1 escola. Dor: passa domingos montando relatório no Word; plano de saúde glosa por falta de IOA. Disposição a pagar: ~R$ 200–300/mês em ferramentas soltas.</div>
+        <div class="todo"><b>Gate parcial:</b> o problema é reconhecido por analistas do comportamento, mas falta o registro formal de 5–10 entrevistas ICP com o roteiro JTBD. <strong>Frente de pesquisa (Psicologia):</strong> conduzir e transcrever essas entrevistas.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="cframe">Value Proposition Canvas</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <div class="vpc">
-          <div class="col"><h5>Perfil do cliente (terapeuta)</h5>
-            <p style="margin:0"><strong>Jobs:</strong> avaliar com instrumento válido; formular metas SMART; aplicar intervenção consistente; comprovar progresso; comunicar com a família; manter conformidade.</p>
-            <p style="margin:.5rem 0 0"><strong>Dores:</strong> retrabalho de costura entre ferramentas; relatório demorado; glosa por falta de índices; não saber se a habilidade generalizou; medo de auditoria.</p>
-            <p style="margin:.5rem 0 0"><strong>Ganhos:</strong> dado que vira decisão; adesão da criança; família engajada; laudo defensável; menos trabalho administrativo.</p>
+    <details class="layer">
+      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
+        <div class="two">
+          <div class="box"><h5>Cliente (terapeuta)</h5>
+            <p><strong>Jobs:</strong> avaliar com instrumento válido; formular metas SMART; aplicar intervenção consistente; comprovar progresso; comunicar com a família.</p>
+            <p><strong>Dores:</strong> retrabalho de costura; relatório demorado; glosa por falta de índices; não saber se generalizou; medo de auditoria.</p>
+            <p><strong>Ganhos:</strong> dado que vira decisão; adesão da criança; família engajada; laudo defensável.</p>
           </div>
-          <div class="col"><h5>Mapa de valor (BCM)</h5>
-            <p style="margin:0"><strong>Produtos/serviços:</strong> 7 instrumentos; PEI digital; 26 jogos; Minha Voz (CAA); Rotina HOME/CLINIC; FCT clínico; telemetria de sessão.</p>
-            <p style="margin:.5rem 0 0"><strong>Analgésicos:</strong> pipeline que conecta os instrumentos (VB-MAPP → baseline do PEI → jogos prioritários); IOA/Kappa automáticos; snapshots imutáveis; alerta de dissociação casa × clínica.</p>
-            <p style="margin:.5rem 0 0"><strong>Criadores de ganho:</strong> gamificação clínica para adesão; relatórios consolidados a partir da telemetria; participação da família na Rotina HOME; selos de trajetória.</p>
+          <div class="box"><h5>Valor (BCM)</h5>
+            <p><strong>Produtos:</strong> 7 instrumentos; PEI digital; 26 jogos; Minha Voz (CAA); Rotina HOME/CLINIC; FCT; telemetria.</p>
+            <p><strong>Analgésicos:</strong> pipeline que conecta os instrumentos; IOA/Kappa automáticos; snapshots imutáveis; alerta de dissociação casa × clínica.</p>
+            <p><strong>Criadores de ganho:</strong> gamificação clínica; relatórios a partir da telemetria; participação da família; selos de trajetória.</p>
           </div>
         </div>
-        <p><strong>Encaixe:</strong> as dores mais caras (retrabalho, glosa, invisibilidade do progresso) têm analgésico direto no produto.</p>
-        <p class="posit">Para o terapeuta ABA e a instituição de desenvolvimento infantil que precisam comprovar progresso, o BCM é a plataforma clínica que conecta avaliação, plano, jogo e evidência numa jornada única. Diferente de apps de jogos e geradores de PEI isolados, nós entregamos integração entre instrumentos e rastreabilidade de nível jurídico.</p>
+        <p class="posit">Para o terapeuta ABA e a instituição de desenvolvimento infantil que precisam comprovar progresso, o BCM conecta avaliação, plano, jogo e evidência numa jornada única. Diferente de apps de jogos e geradores de PEI isolados, nós entregamos integração entre instrumentos e rastreabilidade de nível jurídico.</p>
+        <div class="todo"><b>Gate parcial:</b> o encaixe dor↔analgésico é claro no papel; falta rodar o Value Proposition Canvas com usuários reais e ouvir “é isso que eu preciso”.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="cframe">Lean Canvas · pricing</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <div class="canvas">
-          <div class="w2"><b>Problema</b>Fragmentação do cuidado; baixa operacionalização do plano; progresso invisível.</div>
+          <div class="w2"><b>Problema</b>Fragmentação; baixa operacionalização do plano; progresso invisível.</div>
           <div class="w2"><b>Solução</b>Plataforma em 4 camadas: decisão · execução · engajamento · monitoramento.</div>
           <div class="w2"><b>Proposta única</b>Desenvolvimento infantil estruturado, integrado e auditável — do sensorial ao relatório.</div>
-          <div class="w2"><b>Vantagem injusta</b>Schedule Thinning nativo + integração entre instrumentos + cadeia de custódia jurídica. É arquitetura, não feature — difícil de copiar.</div>
+          <div class="w2"><b>Vantagem injusta</b>Schedule Thinning nativo + integração entre instrumentos + cadeia de custódia jurídica. É arquitetura, não feature.</div>
           <div class="w2"><b>Segmentos</b>Terapeuta autônomo (early: analistas do comportamento) · clínicas · escolas · redes municipais.</div>
-          <div class="w2"><b>Métricas-chave</b>Crianças ativas · metas em maestria · relatórios gerados · churn por slot · % generalização.</div>
-          <div class="w3"><b>Canais</b>Indicação entre terapeutas · conselhos de classe e cursos de ABA · congressos (ABPMC) · parcerias com faculdades · conteúdo técnico.</div>
-          <div class="w3"><b>Estrutura de receita</b>Assinatura por criança ativa (slots): PROFESSIONAL (10) · CLINIC (30) · SCHOOL (50/100) · ENTERPRISE custom + white-label/API. A família não paga.</div>
-          <div class="w3"><b>Estrutura de custo</b>Infra cloud · TTS Google · desenvolvimento · suporte clínico · conformidade LGPD.</div>
-          <div class="w3"><b>Pricing baseado em valor</b>Âncora = soma das ferramentas soltas hoje (~R$ 200–400/mês) + horas de relatório economizadas × valor/hora do terapeuta. Porta de entrada: PROFESSIONAL; a instituição migra para o pool de slots.</div>
+          <div class="w2"><b>Métricas</b>Crianças ativas · metas em maestria · relatórios gerados · churn por slot · % generalização.</div>
+          <div class="w3"><b>Canais</b>Indicação entre terapeutas · conselhos de classe e cursos de ABA · congressos (ABPMC) · parcerias com faculdades.</div>
+          <div class="w3"><b>Receita</b>Assinatura por criança ativa (slots): PROFESSIONAL (10) · CLINIC (30) · SCHOOL (50/100) · ENTERPRISE + white-label/API. A família não paga.</div>
+          <div class="w3"><b>Custo</b>Infra cloud · TTS Google · desenvolvimento · suporte clínico · conformidade.</div>
+          <div class="w3"><b>Pricing por valor</b>Âncora = ferramentas soltas hoje (~R$ 200–400/mês) + horas de relatório × valor/hora. Porta: PROFESSIONAL.</div>
         </div>
         <h4>Fit Staircase</h4>
-        <p>Problema real (glosa e retrabalho) → proposta de valor (integração + auditoria) → canal (indicação + conselhos + faculdade) → modelo (slot por criança ativa).</p>
+        <p>Problema real (glosa e retrabalho) → proposta (integração + auditoria) → canal (indicação + conselhos + faculdade) → modelo (slot por criança ativa).</p>
+        <div class="todo"><b>Gate parcial:</b> estrutura de preço definida; falta medir disposição a pagar real e fechar unit economics. <strong>Frente de pesquisa (Administração/Contábeis):</strong> pesquisa de preço + modelo financeiro.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="cframe">Brand Personality (Aaker)</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <h4>Personalidade de marca</h4>
-        <p><strong>Competência</strong> (confiável, científico, rigoroso) como dimensão dominante; <strong>Sinceridade</strong> (cuidado com a criança, honestidade sobre limites) como apoio. Não é “empolgação” nem “moda”.</p>
-        <h4>Tom de voz — 3 adjetivos</h4>
+    <details class="layer">
+      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
+        <h4>Personalidade de marca (Aaker)</h4>
+        <p><strong>Competência</strong> (confiável, científico, rigoroso) dominante; <strong>Sinceridade</strong> (cuidado com a criança, honestidade sobre limites) de apoio.</p>
+        <h4>Tom de voz</h4>
         <p>Rigoroso · humano · operacional. Fala em evidência e método, nunca em promessa milagrosa.</p>
         <h4>Identidade visual</h4>
-        <p>Azul-clínico + verde (crescimento) + neutros calmos. A UI da criança troca entre <em>modo sensorial</em> (cores vivas, animação suave) e <em>modo PECS</em> (fundo claro, menos estímulo) conforme o perfil EPS-PCA. Nome “BCM” descreve o método; os “5 Mundos” têm identidade lúdica própria.</p>
+        <p>Azul-clínico + verde (crescimento) + neutros calmos. A UI da criança troca entre <em>modo sensorial</em> e <em>modo PECS</em> conforme o perfil EPS-PCA. “BCM” descreve o método; os “5 Mundos” têm identidade lúdica própria.</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="cframe">Story Mapping · AHA · Regras</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Backbone de atividades (terapeuta)</h4>
-        <p>Cadastrar criança → Avaliar (EPS-PCA como gate) → Montar o PEI → Configurar jogos / CAA / rotina → Conduzir sessões → Ler a telemetria → Gerar relatório e revisão do plano.</p>
+        <p>Cadastrar criança → Avaliar (EPS-PCA como gate) → Montar o PEI → Configurar jogos / CAA / rotina → Conduzir sessões → Ler a telemetria → Gerar relatório e revisão.</p>
         <h4>Walking skeleton</h4>
         <p>Criança → EPS-PCA → 1 meta SMART → 1 jogo conectado → 1 sessão com telemetria → 1 snapshot de relatório.</p>
-        <div class="aha"><b>AHA moment:</b> a primeira vez que o relatório de revisão sai pronto da própria telemetria — o terapeuta percebe que não vai mais passar o domingo no Word. O onboarding força chegar aí: primeira avaliação, primeira meta, primeira sessão, primeiro relatório.</div>
+        <div class="aha"><b>AHA moment:</b> a primeira vez que o relatório de revisão sai pronto da própria telemetria — o terapeuta percebe que não vai mais passar o domingo no Word.</div>
         <h4>Regras de negócio (extrato)</h4>
         <ul>
           <li>EPS-PCA com validade de 84 dias — gate obrigatório para criar o PEI.</li>
           <li>Maestria = 85% em 3 sessões consecutivas (Cooper et al., 2020).</li>
-          <li>Meta de redução (DECREASE) exige FCT vinculado — bloqueio 422 sem exceção (princípio ético de Carr &amp; Durand na arquitetura).</li>
-          <li>Slot por criança ativa, contado em tempo real na mesma transação; irmãos não podem ser atendidos pelo mesmo terapeuta simultaneamente.</li>
-          <li>Trial logs do VB-MAPP e eventos do Minha Voz são imutáveis — nunca apagados, só desativados.</li>
+          <li>Meta de redução exige FCT vinculado — bloqueio 422 sem exceção (princípio de Carr &amp; Durand na arquitetura).</li>
+          <li>Slot por criança ativa, contado em tempo real; trial logs imutáveis.</li>
         </ul>
+        <div class="todo"><b>Gate parcial:</b> AHA e backbone definidos; falta o Story Map completo com cortes de release e o teste de usabilidade com 5 usuários. <strong>Frente de pesquisa (Psicologia/Design):</strong> mapear e testar a jornada.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="cframe">estado atual</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <ul>
-          <li><strong>C6 Telas:</strong> módulos em produção; protótipo clínico rodando com as 4 camadas.</li>
-          <li><strong>C7 Sistema:</strong> 4 macrocamadas; cadeia de custódia clínica (G8); LGPD estrutural com consentimento duplo; erro 422 como gate ético; automação que conecta os instrumentos.</li>
-          <li><strong>C8 Implementação:</strong> plataforma em piloto; base científica consolidada (Cooper, Heron &amp; Heward; Sundberg; Iwata; Kazdin; Ryan &amp; Deci; Carr &amp; Durand; Hagopian).</li>
+          <li><strong>C6 Telas <span class="g part">◐</span>:</strong> módulos em produção; protótipo clínico rodando; falta teste de usabilidade formal.</li>
+          <li><strong>C7 Sistema <span class="g ok">✓</span>:</strong> 4 macrocamadas; cadeia de custódia clínica (G8); LGPD estrutural com consentimento duplo; erro 422 como gate ético.</li>
+          <li><strong>C8 Implementação <span class="g part">◐</span>:</strong> plataforma em piloto; base científica consolidada (Cooper, Sundberg, Iwata, Kazdin, Ryan &amp; Deci, Carr &amp; Durand, Hagopian).</li>
         </ul>
       </div>
     </details>
   </div>
-</section>
+</article>
 
-<!-- ============ VIGORA ============ -->
-<section class="product vigora" id="vigora">
+<!-- VIGORA -->
+<article class="product" id="vigora">
   <div class="wrap">
-    <div class="product__banner reveal">
+    <div class="banner">
       <span class="tag">SaaS · no ar (v1.0) · Engenharia Civil / Software</span>
       <h2>Vigora</h2>
-      <p>Cálculo estrutural pela norma brasileira (NBR), 100% na nuvem — fundação, concreto, aço, madeira. 50+ módulos, memorial de cálculo em PDF válido para dar entrada da ART/RRT no CREA. R$ 149/mês.</p>
+      <p>Cálculo estrutural pela norma brasileira (NBR), na nuvem — fundação, concreto, aço, madeira. 50+ módulos, memorial de cálculo em PDF válido para dar entrada da ART/RRT no CREA. R$ 149/mês.</p>
     </div>
 
-    <details class="layer reveal" open>
-      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="cframe">JTBD · Problem Frame</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer" open>
+      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
         <h4>Job principal</h4>
-        <p>“Quando fecho um projeto com estrutura, preciso do memorial de cálculo pela NBR para dar entrada da ART/RRT no CREA — rápido, barato e rastreável — sem depender de software de R$ 15–50 mil/ano que só roda em Windows.”</p>
-        <h4>Jobs emocionais e sociais</h4>
-        <ul>
-          <li><strong>Emocional:</strong> não entregar “no risco”; não recusar trabalho por falta de ferramenta.</li>
-          <li><strong>Social:</strong> ser visto como engenheiro que entrega com rigor normativo.</li>
-        </ul>
+        <p>“Quando fecho um projeto com estrutura, preciso do memorial pela NBR para a ART/RRT no CREA — rápido, barato e rastreável — sem depender de software de R$ 15–50 mil/ano que só roda em Windows.”</p>
         <h4>Problem Frame</h4>
-        <table class="br"><tbody>
+        <div class="tablewrap"><table class="br"><tbody>
           <tr><th>Problema</th><td>Software estrutural NBR é caro, desktop-only e de curva alta; os pequenos ficam de fora e recorrem a planilha imprecisa — ou nada.</td></tr>
           <tr><th>Para quem</th><td>Engenheiro civil autônomo, recém-formado, pequena construtora, escritório de cálculo pequeno (foco Nordeste / Ceará).</td></tr>
           <tr><th>Como resolvem hoje</th><td>Planilha Excel manual, software pirata, ou terceirizam o cálculo.</td></tr>
-          <tr><th>Nossa diferença</th><td>SaaS web + NBR-first + input mínimo (o motor infere pela norma) + solo embutido + memorial rastreável, por R$ 149/mês.</td></tr>
+          <tr><th>Nossa diferença</th><td>SaaS web + NBR-first + input mínimo (o motor infere pela norma) + solo embutido + memorial rastreável, R$ 149/mês.</td></tr>
           <tr><th>Medida de sucesso</th><td>Nº de memoriais gerados por usuário ativo/mês (north star); conversão free → pago; churn.</td></tr>
-          <tr><th>Risco</th><td>Confiança do engenheiro no cálculo; responsabilidade técnica (a ART é sempre humana).</td></tr>
-        </tbody></table>
-        <div class="persona"><b>Persona — “Diego”, 26, recém-formado.</b> CREA ativo há 1 ano, pega obras residenciais de até 4 pavimentos. Dor: perde obra porque não tem como calcular fundação com segurança; Eberick é inviável. Disposição a pagar: R$ 100–200/mês.</div>
-        <p><strong>Gate C1:</strong> ✓ o problema (custo do software, exclusão do pequeno) é reconhecido e tem evidência de mercado (research com 29 fontes).</p>
+        </tbody></table></div>
+        <div class="persona"><b>Persona — “Diego”, 26, recém-formado.</b> CREA ativo há 1 ano, obras residenciais até 4 pavimentos. Dor: perde obra porque não tem como calcular fundação com segurança; Eberick é inviável. Disposição a pagar: R$ 100–200/mês.</div>
+        <p><strong>Gate fechado:</strong> ✓ problema com evidência de mercado (research com 29 fontes, 25 afirmações checadas por 3 votos independentes, 23 confirmadas).</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="cframe">Value Proposition Canvas</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <div class="vpc">
-          <div class="col"><h5>Perfil do cliente</h5>
-            <p style="margin:0"><strong>Jobs:</strong> dimensionar fundação/viga/pilar/laje pela NBR; gerar memorial para a ART; verificar estados-limite; estimar quantitativo.</p>
-            <p style="margin:.5rem 0 0"><strong>Dores:</strong> custo do software; só Windows; curva de aprendizado; input excessivo; solo desacoplado da estrutura; risco técnico no colo.</p>
-            <p style="margin:.5rem 0 0"><strong>Ganhos:</strong> memorial pronto; barato; acessível no celular; rastreável; economia real.</p>
+    <details class="layer">
+      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
+        <div class="two">
+          <div class="box"><h5>Cliente</h5>
+            <p><strong>Jobs:</strong> dimensionar fundação/viga/pilar/laje pela NBR; gerar memorial para a ART; verificar estados-limite; estimar quantitativo.</p>
+            <p><strong>Dores:</strong> custo do software; só Windows; curva; input excessivo; solo desacoplado; risco técnico no colo.</p>
+            <p><strong>Ganhos:</strong> memorial pronto; barato; acessível no celular; rastreável.</p>
           </div>
-          <div class="col"><h5>Mapa de valor (Vigora)</h5>
-            <p style="margin:0"><strong>Produtos/serviços:</strong> 50+ módulos NBR; geotecnia BR (Aoki-Velloso, Décourt-Quaresma, Teixeira; SPT multicamada; CPT→SPT); memória de cálculo em PDF; export DXF; histórico versionado.</p>
-            <p style="margin:.5rem 0 0"><strong>Analgésicos:</strong> defaults normativos inteligentes (menos input); memorial automático (menos tempo); nuvem (sem Windows/instalação); validação cruzada que avisa violação de norma; preço ~100× menor.</p>
-            <p style="margin:.5rem 0 0"><strong>Criadores de ganho:</strong> quantitativo de material; camada PRO paramétrica com override justificado; API/white-label.</p>
+          <div class="box"><h5>Valor (Vigora)</h5>
+            <p><strong>Produtos:</strong> 50+ módulos NBR; geotecnia BR (Aoki-Velloso, Décourt-Quaresma, Teixeira; SPT multicamada); memória de cálculo em PDF; export DXF; histórico versionado.</p>
+            <p><strong>Analgésicos:</strong> defaults normativos inteligentes; memorial automático; nuvem (sem Windows); validação cruzada; preço ~100× menor.</p>
+            <p><strong>Criadores de ganho:</strong> quantitativo de material; camada PRO paramétrica; API/white-label.</p>
           </div>
         </div>
         <p class="posit">Para o engenheiro civil autônomo e a pequena construtora que precisam do memorial pela NBR para a ART, o Vigora é o cálculo estrutural na nuvem com input mínimo. Diferente do TQS ou Eberick (R$ 15–50 mil/ano, só Windows), nós entregamos no navegador, rastreável, por cerca de 100× menos.</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="cframe">Lean Canvas · pricing</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <div class="canvas">
           <div class="w2"><b>Problema</b>Software estrutural caro, desktop, complexo; pequenos ficam de fora.</div>
           <div class="w2"><b>Solução</b>SaaS web + motor NBR + solo embutido + relatório PDF.</div>
-          <div class="w2"><b>Proposta única</b>Cálculo de estrutura pela NBR, na nuvem, memorial pronto para a ART, input mínimo, &lt; R$ 200/mês.</div>
-          <div class="w2"><b>Vantagem injusta</b>Input mínimo com inferência normativa embutida + corpus de casos próprio + velocidade de evolução via Olimpo.</div>
+          <div class="w2"><b>Proposta única</b>Cálculo pela NBR, na nuvem, memorial pronto para a ART, input mínimo, &lt; R$ 200/mês.</div>
+          <div class="w2"><b>Vantagem injusta</b>Input mínimo com inferência normativa embutida + corpus de casos + velocidade via Olimpo.</div>
           <div class="w2"><b>Segmentos</b>Engenheiros civis juniores, autônomos, pequenas construtoras (foco Nordeste).</div>
-          <div class="w2"><b>Métricas-chave</b>Cálculos gerados por usuário ativo/mês (north star) · conversão free→pago · churn · ARPU (~R$ 90–150).</div>
-          <div class="w3"><b>Canais</b>Conteúdo técnico SEO/YouTube (“como dimensionar uma sapata pela NBR 6118”) · CREA-CE · faculdades (licença educacional) · indicação · freemium.</div>
-          <div class="w3"><b>Estrutura de receita</b>Free 10 cálc/mês · Pro Solo R$ 149 · Pro R$ 297 · Equipe R$ 597 · add-ons de estrutura/BIM/API · B2B2C/white-label · licença educacional.</div>
-          <div class="w3"><b>Estrutura de custo</b>Infra cloud (baixa) · desenvolvimento · suporte.</div>
-          <div class="w3"><b>Pricing baseado em valor</b>Âncora explícita: “Eberick a partir de R$ 239/mês” ao lado de “Pro Solo R$ 149”. Free é aquisição — hard block no 11º cálculo, sem fallback.</div>
+          <div class="w2"><b>Métricas</b>Cálculos por usuário ativo/mês (north star) · conversão free→pago · churn · ARPU (~R$ 90–150).</div>
+          <div class="w3"><b>Canais</b>SEO/YouTube técnico (“como dimensionar uma sapata pela NBR 6118”) · CREA-CE · faculdades · indicação · freemium.</div>
+          <div class="w3"><b>Receita</b>Free 10 cálc/mês · Pro Solo R$ 149 · Pro R$ 297 · Equipe R$ 597 · add-ons · B2B2C/white-label · licença educacional.</div>
+          <div class="w3"><b>Custo</b>Infra cloud (baixa) · desenvolvimento · suporte.</div>
+          <div class="w3"><b>Pricing por valor</b>Âncora explícita: “Eberick a partir de R$ 239/mês” ao lado de “Pro Solo R$ 149”. Free = aquisição, hard block no 11º cálculo.</div>
         </div>
         <h4>Fit Staircase</h4>
-        <p>Dor (perder obra ou entregar no risco) → valor (memorial NBR barato e rápido) → canal (SEO técnico + CREA + faculdade) → modelo (assinatura + add-ons).</p>
+        <p>Dor (perder obra ou entregar no risco) → valor (memorial NBR barato e rápido) → canal (SEO + CREA + faculdade) → modelo (assinatura + add-ons).</p>
+        <div class="todo"><b>Gate parcial:</b> canvas completo; unit economics são ilustrativos e a disposição a pagar não foi medida em campo.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="cframe">Brand Personality (Aaker)</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <h4>Personalidade de marca</h4>
+    <details class="layer">
+      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
+        <h4>Personalidade de marca (Aaker)</h4>
         <p><strong>Competência</strong> + <strong>Robustez</strong> — confiável, “aguenta a obra”, brasileiro, pé no chão. Nada de tom de startup.</p>
-        <h4>Tom de voz — 3 adjetivos</h4>
+        <h4>Tom de voz</h4>
         <p>Normativo · acessível · confiável. Técnico e direto, sem jargão desnecessário.</p>
         <h4>Identidade visual</h4>
-        <p>Azul-engenharia + concreto/grafite; tipografia técnica; a tabela de memória de cálculo (fórmula → substituição → resultado → referência NBR) é elemento de identidade. Nome “Vigora” vem de <em>vigor</em> — a estrutura que sustenta (codinome anterior: Fundah). Fio condutor: “do solo ao telhado, pela norma”.</p>
+        <p>Azul-engenharia + concreto/grafite. A tabela de memória de cálculo (fórmula → substituição → resultado → referência NBR) é elemento de identidade. “Vigora” vem de <em>vigor</em> (codinome anterior: Fundah). Fio: “do solo ao telhado, pela norma”.</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="cframe">Story Mapping · AHA · Regras</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Backbone de atividades</h4>
-        <p>Escolher o módulo → Informar o básico (cargas, geometria, solo) → Ver resultado verificado (estados-limite, tensões, flechas, coeficientes) → Baixar memorial + quantitativo → Salvar no projeto → (PRO) sobrescrever coeficiente com justificativa registrada.</p>
+        <p>Escolher o módulo → Informar o básico → Ver resultado verificado (estados-limite, tensões, flechas, coeficientes) → Baixar memorial + quantitativo → Salvar no projeto → (PRO) sobrescrever coeficiente com justificativa.</p>
         <h4>Walking skeleton</h4>
         <p>1 módulo (sapata) → input mínimo → resultado com verificações → PDF do memorial.</p>
-        <div class="aha"><b>AHA moment:</b> ver o memorial em PDF — fórmula, substituição, resultado e referência à NBR — gerado em segundos. “Isso eu levo pro CREA.” O onboarding leva o usuário até o download do primeiro PDF, de graça.</div>
+        <div class="aha"><b>AHA moment:</b> ver o memorial em PDF — fórmula, substituição, resultado e referência à NBR — gerado em segundos. “Isso eu levo pro CREA.”</div>
         <h4>Regras de negócio (extrato)</h4>
         <ul>
-          <li>Free: 10 cálculos/mês, marca d’água no PDF, sem histórico.</li>
+          <li>Free: 10 cálculos/mês, marca d’água, sem histórico.</li>
           <li>Toda norma é versionada (NBR 6118:2014, NBR 6122:2022…); atualização não quebra cálculo antigo.</li>
-          <li>Todo override de default exige justificativa registrada (auditoria).</li>
-          <li>Entrada inválida → 400 tratado, nunca 500. Multi-tenant enforce nas queries.</li>
-          <li>Estruturas experimentais (arco, treliça, viga contínua) levam selo e não são vendáveis.</li>
+          <li>Todo override de default exige justificativa registrada.</li>
+          <li>Entrada inválida → 400 tratado, nunca 500. Multi-tenant enforce.</li>
         </ul>
+        <div class="todo"><b>Gate parcial:</b> jornada implementada e no ar; falta teste de usabilidade formal com 5 engenheiros e medição da conversão no AHA.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="cframe">estado atual</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
         <ul>
-          <li><strong>C6 Telas:</strong> produto no ar (v1.0), front Angular; wizard de cálculo + tela de resultado + download de memorial.</li>
-          <li><strong>C7 Sistema:</strong> nginx → front estático + proxy /api → backend (Django/DRF), Postgres (Neon); API pública versionada /api/v1; contrato em <code>specs/</code>.</li>
-          <li><strong>C8 Implementação:</strong> roadmap v0.1 → v1.0 100% entregue (6 fases, 13 PRs, 400+ testes verdes). Pendências de ativação: chaves Stripe, HTTPS/domínio, front de billing.</li>
+          <li><strong>C6 Telas <span class="g ok">✓</span>:</strong> produto no ar (v1.0), front Angular; wizard + resultado + download de memorial.</li>
+          <li><strong>C7 Sistema <span class="g ok">✓</span>:</strong> nginx → front estático + proxy /api → backend (Django/DRF), Postgres (Neon); API pública /api/v1; contrato em <code>specs/</code>.</li>
+          <li><strong>C8 Implementação <span class="g ok">✓</span>:</strong> roadmap v0.1 → v1.0 100% entregue (6 fases, 13 PRs, 400+ testes verdes). Pendências de <em>ativação</em>: chaves Stripe, HTTPS/domínio, front de billing.</li>
         </ul>
       </div>
     </details>
   </div>
-</section>
+</article>
 
-<!-- ============ FORJA ============ -->
-<section class="product forja" id="forja">
+<!-- FORJA -->
+<article class="product" id="forja">
   <div class="wrap">
-    <div class="product__banner reveal">
+    <div class="banner">
       <span class="tag">SaaS · plataforma · Engenharia de Software</span>
       <h2>Forja</h2>
       <p>O ambiente de produção onde a inteligência da LaVita é vendida como serviço: agentes de IA do Olimpo, coordenados pela Ayla, planejam, implementam e revisam software sob governança. <strong>A Ayla e o Olimpo não estão à venda</strong> — a Forja vende o acesso produtivo a eles.</p>
     </div>
 
-    <details class="layer reveal" open>
-      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="cframe">JTBD · Problem Frame</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer" open>
+      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Job principal</h4>
         <p>“Quando preciso construir ou evoluir software rápido e com qualidade, quero um time que planeje, implemente e revise sob governança — sem contratar e treinar uma equipe inteira, nem depender de um assistente de código avulso que não mantém contexto.”</p>
-        <h4>Jobs emocionais e sociais</h4>
-        <ul>
-          <li><strong>Emocional:</strong> confiar que o que foi entregue passou por revisão; não temer que a IA quebre produção.</li>
-          <li><strong>Social:</strong> ser um time pequeno que entrega como um grande.</li>
-        </ul>
         <h4>Problem Frame</h4>
-        <table class="br"><tbody>
+        <div class="tablewrap"><table class="br"><tbody>
           <tr><th>Problema</th><td>Construir software é caro e lento; assistentes de IA avulsos não têm orquestração, escopo protegido nem auditoria; montar um time de IA interno é trabalho de especialista.</td></tr>
-          <tr><th>Para quem</th><td>Times de produto pequenos, startups, software houses, áreas de inovação, laboratórios de pesquisa que precisam de protótipo.</td></tr>
+          <tr><th>Para quem</th><td>Times de produto pequenos, startups, software houses, áreas de inovação, laboratórios de pesquisa.</td></tr>
           <tr><th>Como resolvem hoje</th><td>Contratam dev, usam assistente de código solto, ou terceirizam.</td></tr>
           <tr><th>Nossa diferença</th><td>Esteira multi-agente orquestrada (Ayla + Olimpo) com guarda de escopo, worktrees isolados, gate de qualidade e trilha de auditoria — vendida como ambiente pronto.</td></tr>
-          <tr><th>Medida de sucesso</th><td>Throughput de entrega (PRs mergeados com gate verde); custo por feature; retrabalho.</td></tr>
-          <tr><th>Risco</th><td>Confiança em código gerado; governança e segurança de agentes autônomos; percepção de “hype de IA”.</td></tr>
-        </tbody></table>
-        <div class="persona"><b>Persona — founder não-técnico + 2–3 devs.</b> Quer 5× de capacidade sem 5× de folha. Precisa de previsibilidade e de saber que o código passou por revisão.</div>
+          <tr><th>Medida de sucesso</th><td>Throughput (PRs mergeados com gate verde); custo por feature; retrabalho.</td></tr>
+        </tbody></table></div>
+        <div class="persona"><b>Persona — founder não-técnico + 2–3 devs.</b> Quer 5× de capacidade sem 5× de folha; precisa de previsibilidade e de saber que o código passou por revisão.</div>
+        <div class="todo"><b>Gate parcial:</b> o problema é real e a esteira existe, mas o segmento-alvo exato e o roteiro de entrevistas ICP ainda não foram fechados. <strong>Frente de pesquisa (Eng. de Software / Admin):</strong> entrevistas com times de produto.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="cframe">Value Proposition Canvas</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <div class="vpc">
-          <div class="col"><h5>Perfil do cliente</h5>
-            <p style="margin:0"><strong>Jobs:</strong> planejar releases; implementar features; revisar código; manter qualidade; documentar.</p>
-            <p style="margin:.5rem 0 0"><strong>Dores:</strong> custo e tempo de contratar; assistente sem contexto ou escopo; medo de regressão; falta de auditoria.</p>
-            <p style="margin:.5rem 0 0"><strong>Ganhos:</strong> capacidade sob demanda; revisão embutida; rastreio; previsibilidade de entrega.</p>
+    <details class="layer">
+      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
+        <div class="two">
+          <div class="box"><h5>Cliente</h5>
+            <p><strong>Jobs:</strong> planejar releases; implementar features; revisar código; manter qualidade; documentar.</p>
+            <p><strong>Dores:</strong> custo e tempo de contratar; assistente sem contexto ou escopo; medo de regressão; falta de auditoria.</p>
+            <p><strong>Ganhos:</strong> capacidade sob demanda; revisão embutida; rastreio; previsibilidade.</p>
           </div>
-          <div class="col"><h5>Mapa de valor (Forja)</h5>
-            <p style="margin:0"><strong>Produtos/serviços:</strong> ambiente de produção pronto; Ayla orquestradora + agentes especializados; planejamento (PLANNING_FORMAT); execução em worktree isolado; gate de qualidade; trilha de auditoria; métricas de entrega.</p>
-            <p style="margin:.5rem 0 0"><strong>Analgésicos:</strong> guarda de escopo (Ayla como PM veta o drift); revisão automatizada antes de entregar; worktree isolado (não quebra o main); limites de orçamento por invocação.</p>
-            <p style="margin:.5rem 0 0"><strong>Criadores de ganho:</strong> dataset de execução; relatório de produtividade humano + IA; velocidade de evolução acima da média do setor.</p>
+          <div class="box"><h5>Valor (Forja)</h5>
+            <p><strong>Produtos:</strong> ambiente pronto; Ayla orquestradora + agentes especializados; planejamento (PLANNING_FORMAT); execução em worktree isolado; gate de qualidade; trilha de auditoria; métricas.</p>
+            <p><strong>Analgésicos:</strong> guarda de escopo (Ayla veta o drift); revisão automatizada antes de entregar; worktree isolado; limite de orçamento por invocação.</p>
+            <p><strong>Criadores de ganho:</strong> dataset de execução; relatório de produtividade humano + IA; velocidade acima da média.</p>
           </div>
         </div>
         <p class="posit">Para times de produto e áreas de inovação que precisam construir software rápido e com qualidade, a Forja é o ambiente onde agentes de IA planejam, implementam e revisam sob governança. Diferente de um assistente de código avulso, nós entregamos uma esteira orquestrada, com escopo protegido e auditoria.</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="cframe">Lean Canvas · pricing</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="gate open">Aberto</span></summary>
+      <div class="lbody">
         <div class="canvas">
           <div class="w2"><b>Problema</b>Capacidade de engenharia é cara e lenta; IA avulsa não tem orquestração nem auditoria.</div>
           <div class="w2"><b>Solução</b>Esteira multi-agente: planeja → implementa em worktree → gate → PR + trilha.</div>
           <div class="w2"><b>Proposta única</b>Um time de agentes de IA em produção — planeja, implementa, revisa — sob governança.</div>
-          <div class="w2"><b>Vantagem injusta</b>Orquestração + constituição de segurança + a Ayla (não replicável) + know-how de rodar isso em produção real.</div>
-          <div class="w2"><b>Segmentos</b>Startups pré-Seed/Seed · software houses · áreas de inovação corporativa · laboratórios acadêmicos.</div>
-          <div class="w2"><b>Métricas-chave</b>PRs entregues com gate verde/mês · custo por feature · retenção · expansão de pacote.</div>
-          <div class="w3"><b>Canais</b>Comunidade dev · casos (o próprio Vigora) · parcerias com aceleradoras e faculdades · conteúdo de engenharia.</div>
-          <div class="w3"><b>Estrutura de receita</b>Pacotes de capacidade (assinatura por ambiente + volume de execução) · add-on de mentoria humana · licença educacional/pesquisa.</div>
-          <div class="w3"><b>Estrutura de custo</b>Compute/LLM (maior item) · infra · curadoria humana · segurança.</div>
-          <div class="w3"><b>Pricing baseado em valor</b>Âncora = custo de 1 dev pleno/mês (R$ 8–15 mil) contra o pacote. Freemium = um piloto pequeno real, ponta a ponta.</div>
+          <div class="w2"><b>Vantagem injusta</b>Orquestração + constituição de segurança + a Ayla (não replicável) + know-how de produção.</div>
+          <div class="w2"><b>Segmentos</b>Startups pré-Seed/Seed · software houses · inovação corporativa · laboratórios acadêmicos.</div>
+          <div class="w2"><b>Métricas</b>PRs com gate verde/mês · custo por feature · retenção · expansão de pacote.</div>
+          <div class="w3"><b>Canais</b>Comunidade dev · casos (o Vigora) · aceleradoras e faculdades · conteúdo de engenharia.</div>
+          <div class="w3"><b>Receita</b>Pacotes de capacidade (assinatura por ambiente + volume) · add-on de mentoria humana · licença educacional/pesquisa.</div>
+          <div class="w3"><b>Custo</b>Compute/LLM (maior item) · infra · curadoria humana · segurança.</div>
+          <div class="w3"><b>Pricing por valor</b>Âncora = custo de 1 dev pleno/mês (R$ 8–15 mil) contra o pacote. Freemium = piloto pequeno real.</div>
         </div>
-        <h4>Fit Staircase</h4>
-        <p>Dor (capacidade cara e lenta) → valor (esteira orquestrada com qualidade) → canal (casos + comunidade + academia) → modelo (pacote de capacidade + expansão).</p>
+        <div class="todo"><b>Gate aberto:</b> a estrutura de pacotes e o segmento de entrada ainda não estão fechados; não há preço testado no mercado. <strong>Frente de pesquisa:</strong> definir pacotes, testar preço, medir produtividade real.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="cframe">Brand Personality (Aaker)</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <h4>Personalidade de marca</h4>
+    <details class="layer">
+      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
+        <h4>Personalidade de marca (Aaker)</h4>
         <p><strong>Competência</strong> + um toque de <strong>Sofisticação</strong> — avançado, porém sério. Zero hype.</p>
-        <h4>Tom de voz — 3 adjetivos</h4>
+        <h4>Tom de voz</h4>
         <p>Orquestrado · governado · rápido. Preciso e sóbrio.</p>
         <h4>Identidade visual</h4>
-        <p>Indigo/grafite; estética de “linha de produção” limpa. O nome “Forja” diz o papel: é onde a peça é moldada. Deixa explícito que Ayla/Olimpo são o motor e a Forja é o que se vende.</p>
+        <p>Indigo/grafite; estética de “linha de produção” limpa. “Forja” = onde a peça é moldada. Deixa explícito que Ayla/Olimpo são o motor e a Forja é o que se vende.</p>
+        <div class="todo"><b>Gate parcial:</b> conceito de marca definido; falta o teste de 5 segundos com o público-alvo.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="cframe">Story Mapping · AHA · Regras</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Backbone de atividades</h4>
         <p>Definir o objetivo → Ayla planeja (PLANNING) → agentes executam em worktrees isolados → gate de qualidade → PR + trilha de auditoria → cliente revisa e mergeia.</p>
         <h4>Walking skeleton</h4>
         <p>1 objetivo → 1 planning → 1 feature implementada → 1 gate verde → 1 PR.</p>
-        <div class="aha"><b>AHA moment:</b> o primeiro PR que chega pronto, com o escopo respeitado e a revisão passada — o cliente vê que não precisou microgerenciar. O onboarding é um objetivo pequeno e real do cliente, entregue ponta a ponta em 48h.</div>
+        <div class="aha"><b>AHA moment:</b> o primeiro PR que chega pronto, com o escopo respeitado e a revisão passada — o cliente vê que não precisou microgerenciar.</div>
         <h4>Regras de negócio (extrato)</h4>
         <ul>
-          <li>Escopo protegido — a Ayla veta o drift de escopo.</li>
-          <li>Todo trabalho acontece em worktree isolado; nunca direto no branch principal.</li>
+          <li>Escopo protegido — a Ayla veta o drift.</li>
+          <li>Todo trabalho em worktree isolado; nunca direto no branch principal.</li>
           <li>Gate de qualidade obrigatório antes de abrir PR.</li>
           <li>Limite de orçamento por invocação; auditoria por projeto.</li>
         </ul>
+        <div class="todo"><b>Gate parcial:</b> jornada operante internamente; falta empacotar como produto self-service e testar onboarding com cliente externo.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="cframe">estado atual</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <ul>
-          <li><strong>C6 Telas:</strong> interface de ambiente em evolução.</li>
-          <li><strong>C7 Sistema:</strong> Ayla + invocação de agentes por MCP + runtime local com fallback + Neon como fonte de verdade.</li>
-          <li><strong>C8 Implementação:</strong> esteira comprovada — o Vigora foi construído nela (roadmap completo por agentes, com a Ayla como guarda de escopo).</li>
+          <li><strong>C6 Telas <span class="g open">○</span>:</strong> interface de ambiente ainda em definição.</li>
+          <li><strong>C7 Sistema <span class="g part">◐</span>:</strong> Ayla + invocação de agentes por MCP + runtime local com fallback + Neon como fonte de verdade.</li>
+          <li><strong>C8 Implementação <span class="g part">◐</span>:</strong> esteira comprovada — o Vigora foi construído nela — mas o produto empacotado (pacotes, billing, painel) ainda não existe.</li>
         </ul>
       </div>
     </details>
   </div>
-</section>
+</article>
 
-<!-- ============ ANAMNÉSIS ============ -->
-<section class="product anamnesis" id="anamnesis">
+<!-- ANAMNÉSIS -->
+<article class="product" id="anamnesis">
   <div class="wrap">
-    <div class="product__banner reveal">
+    <div class="banner">
       <span class="tag">Piloto clínico · Psiquiatria / Psicologia · “a IA mede, o médico decide”</span>
       <h2>Anamnésis <span style="font-family:var(--f-sans);font-size:1rem;font-weight:400;color:var(--ink-soft)">· by Ayla</span></h2>
       <p>A Ayla aplicada à clínica: um assistente de IA para avaliação psiquiátrica multimodal. Durante uma entrevista conduzida pelo profissional, analisa fala, voz, vídeo e comportamento e devolve um mapa de padrões e divergências — com evidência marcada no tempo. Não diagnostica.</p>
     </div>
 
-    <details class="layer reveal" open>
-      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="cframe">JTBD · Problem Frame</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer" open>
+      <summary><span class="cno">C1</span><span class="ctitle">Descoberta</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Job principal (psiquiatra / psicólogo)</h4>
         <p>“Quando conduzo uma avaliação, quero capturar fala, voz, expressão e comportamento ao mesmo tempo e ver onde o relato do paciente diverge do que ele mostra — sem virar operador de software no meio da consulta e sem que a máquina ‘dê o diagnóstico’.”</p>
-        <h4>Jobs emocionais e sociais</h4>
-        <ul>
-          <li><strong>Emocional:</strong> não perder sinal por falta de tempo ou atenção; ter respaldo de evidência; manter o controle clínico.</li>
-          <li><strong>Social:</strong> ser um serviço ou consultório na fronteira, com método.</li>
-        </ul>
         <h4>Problem Frame</h4>
-        <table class="br"><tbody>
-          <tr><th>Problema</th><td>A avaliação psiquiátrica depende de observação multimodal que uma pessoa sozinha não registra de forma sistemática; escalas em papel são fragmentadas; não há instrumento que cruze modalidades e aponte a contradição entre relato e comportamento.</td></tr>
+        <div class="tablewrap"><table class="br"><tbody>
+          <tr><th>Problema</th><td>A avaliação psiquiátrica depende de observação multimodal que uma pessoa sozinha não registra sistematicamente; escalas em papel são fragmentadas; não há instrumento que cruze modalidades e aponte a contradição relato × comportamento.</td></tr>
           <tr><th>Para quem</th><td>Psiquiatras, psicólogos avaliadores, ambulatórios de saúde mental, pesquisa clínica.</td></tr>
           <tr><th>Como resolvem hoje</th><td>Entrevista + escalas (DSM-5-TR Nível 1, PHQ-9…) + anotação manual + memória do profissional.</td></tr>
-          <tr><th>Nossa diferença</th><td>IA que analisa fala/voz/vídeo/comportamento durante a entrevista conduzida pelo médico e devolve padrões, divergências e evidência com <em>timestamp</em> — como apoio, com gate de segurança, sob o princípio “a IA mede, o médico decide”.</td></tr>
+          <tr><th>Nossa diferença</th><td>IA que analisa fala/voz/vídeo/comportamento durante a entrevista conduzida pelo médico e devolve padrões, divergências e evidência com <em>timestamp</em> — como apoio, com gate de segurança.</td></tr>
           <tr><th>Medida de sucesso</th><td>Concordância entre o padrão da IA e o julgamento clínico; sinal capturado que o profissional não teria registrado; tempo de documentação.</td></tr>
-          <tr><th>Risco (alto e honesto)</th><td>Validação científica; não induzir diagnóstico; viés de análise facial; LGPD e dados sensíveis; enquadramento regulatório (não é dispositivo diagnóstico).</td></tr>
-        </tbody></table>
+          <tr><th>Risco (alto e honesto)</th><td>Validação científica; não induzir diagnóstico; viés de análise facial; LGPD e dados sensíveis; enquadramento regulatório.</td></tr>
+        </tbody></table></div>
         <div class="persona"><b>Persona — “Dra. Ana Lívia”, psiquiatra e validadora científica.</b> Quer massa de dados comparável entre pacientes e método padronizado. <strong>Não</strong> quer um “score de IA” substituindo o exame.</div>
+        <div class="todo"><b>Gate parcial:</b> protocolo escrito e validado por psiquiatra; o piloto que testa o problema com participantes reais ainda não rodou. <strong>É o objetivo do stand.</strong></div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="cframe">Value Proposition Canvas</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <div class="vpc">
-          <div class="col"><h5>Perfil do cliente</h5>
-            <p style="margin:0"><strong>Jobs:</strong> conduzir entrevista estruturada; observar o estado mental; comparar relato × comportamento; documentar; decidir encaminhamento.</p>
-            <p style="margin:.5rem 0 0"><strong>Dores:</strong> registro multimodal impossível manualmente; escalas fragmentadas; contradições passam batido; documentação consome tempo; medo de IA “caixa-preta”.</p>
-            <p style="margin:.5rem 0 0"><strong>Ganhos:</strong> sinal sistematizado; evidência rastreável; método comparável entre pacientes; controle clínico preservado.</p>
+    <details class="layer">
+      <summary><span class="cno">C2</span><span class="ctitle">Proposta de valor</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
+        <div class="two">
+          <div class="box"><h5>Cliente</h5>
+            <p><strong>Jobs:</strong> conduzir entrevista estruturada; observar o estado mental; comparar relato × comportamento; documentar; decidir encaminhamento.</p>
+            <p><strong>Dores:</strong> registro multimodal impossível manualmente; escalas fragmentadas; contradições passam batido; documentação lenta; medo de IA “caixa-preta”.</p>
+            <p><strong>Ganhos:</strong> sinal sistematizado; evidência rastreável; método comparável; controle clínico preservado.</p>
           </div>
-          <div class="col"><h5>Mapa de valor (Anamnésis)</h5>
-            <p style="margin:0"><strong>Produtos/serviços:</strong> roteiro transdiagnóstico de 20 min (13 domínios, base DSM-5-TR Nível 1 + Exame do Estado Mental + mhGAP); análise de fala, voz, face, postura/gestos vs baseline e interação; saída em duas escalas separadas (nota 0–4 da triagem × compatibilidade 0–100 do padrão); contexto longitudinal opcional (WhatsApp consentido).</p>
-            <p style="margin:.5rem 0 0"><strong>Analgésicos:</strong> mede o que a pessoa não consegue medir sozinha; separa triagem de compatibilidade (não confunde com probabilidade diagnóstica); gate de segurança (risco → encerra); evidência com <em>timestamp</em> para a decisão do médico.</p>
-            <p style="margin:.5rem 0 0"><strong>Criadores de ganho:</strong> comparabilidade entre participantes (pesquisa); base para artigos; verificação de padrão fora da entrevista.</p>
+          <div class="box"><h5>Valor (Anamnésis)</h5>
+            <p><strong>Produtos:</strong> roteiro transdiagnóstico de 20 min (13 domínios; base DSM-5-TR Nível 1 + Exame do Estado Mental + mhGAP); análise de fala, voz, face, postura e interação; saída em duas escalas separadas (0–4 triagem × 0–100 compatibilidade); contexto longitudinal opcional.</p>
+            <p><strong>Analgésicos:</strong> mede o que a pessoa não mede sozinha; separa triagem de compatibilidade; gate de segurança (risco → encerra); evidência com <em>timestamp</em>.</p>
+            <p><strong>Criadores de ganho:</strong> comparabilidade entre participantes; base para artigos; verificação de padrão fora da entrevista.</p>
           </div>
         </div>
         <p class="posit">Para o psiquiatra e o psicólogo que conduzem avaliação e não têm como capturar fala, voz, vídeo e comportamento ao mesmo tempo, o Anamnésis conduz a entrevista multimodal e devolve padrões e divergências mensurados. Diferente de escalas em papel e triagens fragmentadas, a IA mede — e o clínico decide.</p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="cframe">Lean Canvas · pricing</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C3</span><span class="ctitle">Modelo de negócio</span><span class="gate open">Aberto</span></summary>
+      <div class="lbody">
         <div class="canvas">
           <div class="w2"><b>Problema</b>Sinal multimodal da avaliação se perde; escalas fragmentadas; medo de IA caixa-preta.</div>
           <div class="w2"><b>Solução</b>Entrevista assistida por IA + saída em duas escalas + gate de segurança + evidência com timestamp.</div>
           <div class="w2"><b>Proposta única</b>Avaliação psiquiátrica multimodal — a IA mede os sinais, o médico decide.</div>
-          <div class="w2"><b>Vantagem injusta</b>Parque de extratores da Ayla + constituição de segurança + desenho ético “IA mede, humano decide” + base de validação científica.</div>
-          <div class="w2"><b>Segmentos</b>Consultório de psiquiatria · clínicas de avaliação · ambulatórios · pesquisa clínica/academia. Early: pesquisa + psiquiatras early-adopter.</div>
-          <div class="w2"><b>Métricas-chave</b>Avaliações realizadas · concordância IA × clínico · retenção de profissionais · nº de artigos/validações.</div>
-          <div class="w3"><b>Canais</b>Congressos de psiquiatria e psicologia (o stand!) · publicações · sociedades (ABP) · parcerias com faculdades e serviços · indicação entre médicos.</div>
-          <div class="w3"><b>Estrutura de receita</b>Assinatura por profissional/consultório (por avaliação ou pacote mensal) · licença institucional para ambulatório e pesquisa · licença acadêmica. Piloto = gratuito/pesquisa.</div>
-          <div class="w3"><b>Estrutura de custo</b>Compute (análise multimodal) · infra segura · ASR/TTS · validação clínica contínua · conformidade · jurídico/regulatório.</div>
-          <div class="w3"><b>Pricing baseado em valor</b>Âncora = tempo do médico por avaliação + valor de uma segunda opinião estruturada. Não competir com “app de teste psicológico”.</div>
+          <div class="w2"><b>Vantagem injusta</b>Parque de extratores da Ayla + constituição de segurança + desenho ético + base de validação científica.</div>
+          <div class="w2"><b>Segmentos</b>Consultório de psiquiatria · clínicas de avaliação · ambulatórios · pesquisa/academia. Early: pesquisa + psiquiatras early-adopter.</div>
+          <div class="w2"><b>Métricas</b>Avaliações realizadas · concordância IA × clínico · retenção · nº de artigos/validações.</div>
+          <div class="w3"><b>Canais</b>Congressos de psiquiatria e psicologia (o stand!) · publicações · sociedades (ABP) · faculdades e serviços · indicação entre médicos.</div>
+          <div class="w3"><b>Receita</b>Assinatura por profissional/consultório (por avaliação ou pacote) · licença institucional (ambulatório, pesquisa) · licença acadêmica. Piloto = gratuito/pesquisa.</div>
+          <div class="w3"><b>Custo</b>Compute (análise multimodal) · infra segura · ASR/TTS · validação clínica contínua · conformidade · jurídico/regulatório.</div>
+          <div class="w3"><b>Pricing por valor</b>Âncora = tempo do médico por avaliação + valor de uma segunda opinião estruturada. Não competir com “app de teste psicológico”.</div>
         </div>
-        <h4>Fit Staircase</h4>
-        <p>Dor (sinal multimodal perdido, documentação lenta, medo de caixa-preta) → valor (mede o que falta, com transparência e gate) → canal (congresso + publicação + academia) → modelo (assinatura profissional + institucional + acadêmica).</p>
+        <div class="todo"><b>Gate aberto:</b> antes de fechar preço e canal, o produto precisa de validação clínica (o piloto) e de clareza regulatória. <strong>Prioridade: o piloto no stand.</strong></div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="cframe">Brand Personality (Aaker)</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
-        <h4>Personalidade de marca</h4>
+    <details class="layer">
+      <summary><span class="cno">C4</span><span class="ctitle">Identidade</span><span class="gate ok">Fechado</span></summary>
+      <div class="lbody">
+        <h4>Personalidade de marca (Aaker)</h4>
         <p><strong>Competência</strong> + <strong>Sinceridade</strong> forte — transparente sobre o que <em>não</em> faz. Nunca sensacionalista.</p>
-        <h4>Tom de voz — 3 adjetivos</h4>
+        <h4>Tom de voz</h4>
         <p>Transparente · rigoroso · complementar. Clínico e sóbrio, honesto sobre limites.</p>
         <h4>Identidade visual e princípio inegociável</h4>
         <p>Teal (a cor da Ayla) + neutros clínicos. A UI mostra evidência e <em>timestamp</em>, nunca um “veredito”. O nome — <strong>Anamnésis · by Ayla</strong> — é a palavra que todo clínico reconhece para a coleta estruturada da história. Frase-âncora em todo material: <strong>“A IA mede. O médico decide.”</strong></p>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="cframe">Story Mapping · AHA · Regras</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C5</span><span class="ctitle">Jornada</span><span class="gate part">Parcial</span></summary>
+      <div class="lbody">
         <h4>Backbone de atividades</h4>
-        <p>Consentir + configurar captação → Baseline (30–45 s neutro) → Narrativa livre → Varredura dos 13 domínios (nota 0–4; aprofundar ≥ 2) → Função e cronologia → Estado mental → Contraste relato × comportamento → Fechamento → Saída para o médico (domínio, padrão, compatibilidade, evidências, contradições, hipóteses) → Conclusão da Dra. (campo exclusivamente médico).</p>
+        <p>Consentir + configurar captação → Baseline (30–45 s neutro) → Narrativa livre → Varredura dos 13 domínios (nota 0–4; aprofundar ≥ 2) → Função e cronologia → Estado mental → Contraste relato × comportamento → Fechamento → Saída para o médico → Conclusão da Dra. (campo exclusivamente médico).</p>
         <h4>Walking skeleton (piloto do stand)</h4>
         <p>1 entrevista de 20 min → captação estável → análise de 3 modalidades → 1 saída para a médica → 1 registro comparável entre participantes.</p>
-        <div class="aha"><b>AHA moment:</b> a primeira vez que a saída mostra uma contradição real — “relata ‘estou tranquilo’, ativação motora sobe no bloco de pressão, 06:42–08:10” — e a médica reconhece que é clinicamente relevante. É quando “IA na consulta” deixa de ser hype.</div>
+        <div class="aha"><b>AHA moment:</b> a primeira vez que a saída mostra uma contradição real — “relata ‘estou tranquilo’, ativação motora sobe no bloco de pressão, 06:42–08:10” — e a médica reconhece que é clinicamente relevante.</div>
         <h4>Regras de negócio (extrato)</h4>
         <ul>
-          <li><strong>Gate de segurança:</strong> ideação suicida, psicose aguda, intoxicação ou sinal neurológico agudo → o protocolo de demonstração encerra; a condução volta 100% ao profissional.</li>
+          <li><strong>Gate de segurança:</strong> ideação suicida, psicose aguda, intoxicação ou sinal neurológico agudo → o protocolo encerra; a condução volta 100% ao profissional.</li>
           <li>As duas escalas nunca se misturam: 0–4 é triagem, 0–100 é compatibilidade de padrão — não é probabilidade diagnóstica.</li>
-          <li>Análise facial = medida experimental; nunca usada como detector de mentira.</li>
-          <li>Consentimento explícito + desidentificação; WhatsApp só por trechos, nunca a íntegra.</li>
+          <li>Análise facial = medida experimental; nunca detector de mentira.</li>
+          <li>Consentimento explícito + desidentificação; WhatsApp só por trechos.</li>
           <li>A conclusão diagnóstica é campo exclusivamente médico.</li>
         </ul>
+        <div class="todo"><b>Gate parcial:</b> jornada desenhada em detalhe no protocolo; falta rodá-la com participantes reais e medir onde há atrito.</div>
       </div>
     </details>
 
-    <details class="layer reveal">
-      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="cframe">estado atual</span><span class="caret">▸</span></summary>
-      <div class="layer__body">
+    <details class="layer">
+      <summary><span class="cno">C6–C8</span><span class="ctitle">Telas · Sistema · Implementação</span><span class="gate open">Aberto</span></summary>
+      <div class="lbody">
         <ul>
-          <li><strong>C6 Telas:</strong> interface de consultório a desenvolver após a validação do piloto.</li>
-          <li><strong>C7 Sistema:</strong> parque de extratores da Ayla (linguagem, emoção, dinâmica relacional) + arquitetura de duas escalas + gate de segurança + tratamento LGPD de dados sensíveis.</li>
-          <li><strong>C8 Implementação:</strong> piloto no stand → medir concordância IA × clínico → primeiro artigo → só então construir a interface de consultório.</li>
+          <li><strong>C6 Telas <span class="g open">○</span>:</strong> interface de consultório a desenvolver após a validação do piloto.</li>
+          <li><strong>C7 Sistema <span class="g part">◐</span>:</strong> parque de extratores da Ayla (linguagem, emoção, dinâmica relacional) + arquitetura de duas escalas + gate de segurança + tratamento LGPD de dados sensíveis.</li>
+          <li><strong>C8 Implementação <span class="g open">○</span>:</strong> piloto no stand → medir concordância IA × clínico → primeiro artigo → só então construir a interface de consultório.</li>
         </ul>
       </div>
     </details>
   </div>
-</section>
+</article>
 
-<!-- ============ UNIATENEU ============ -->
-<section class="product uniateneu" id="uniateneu">
+<!-- UNIATENEU -->
+<article class="product" id="uniateneu">
   <div class="wrap">
-    <div class="product__banner reveal">
+    <div class="banner">
       <span class="tag">Como a parceria se encaixa</span>
       <h2>Onde a UniAteneu entra em cada camada</h2>
-      <p>O framework não é só narrativa de venda — é um roteiro de pesquisa. Cada camada tem trabalho que alunos e professores da UniAteneu podem conduzir, com entregável acadêmico.</p>
+      <p>As células <span class="g part">◐</span> e <span class="g open">○</span> da matriz são o roteiro. Cada uma vira um projeto de pesquisa com entregável acadêmico.</p>
     </div>
     <div class="tablewrap">
       <table class="br">
@@ -673,85 +682,39 @@ table.br th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text
           <tr><td><strong>C3 Modelo de negócio</strong></td><td>Lean Canvas; pesquisa de disposição a pagar; unit economics; análise de concorrência</td><td>Administração · Ciências Contábeis · Eng. de Produção</td><td>Plano de negócio; artigo de mercado; base para editais</td></tr>
           <tr><td><strong>C4 Identidade</strong></td><td>Teste de marca (5-second test); estudo de tom de voz; pesquisa de percepção</td><td>Publicidade · Design · Psicologia</td><td>Relatório de percepção de marca</td></tr>
           <tr><td><strong>C5 Jornada</strong></td><td>User Story Mapping; teste de usabilidade (5 usuários); medição do AHA moment</td><td>Eng. de Software · Design · Psicologia</td><td>Story map; relatório de usabilidade; artigo de UX</td></tr>
-          <tr><td><strong>C6–C7 Telas e Sistema</strong></td><td>Wireflow; verificação de arquitetura; testes automatizados; verificação de métodos normativos (Vigora)</td><td>Eng. de Software · Eng. Civil</td><td>TCC técnico; suíte de testes; benchmark</td></tr>
-          <tr><td><strong>C8 Implementação</strong></td><td>Contribuir na esteira Forja; medir produtividade humano + IA; estudo de adoção</td><td>Eng. de Software · Sistemas de Informação</td><td>Artigo de engenharia; dataset de execução</td></tr>
+          <tr><td><strong>C6–C7</strong></td><td>Wireflow; verificação de arquitetura; testes automatizados; verificação de métodos normativos (Vigora)</td><td>Eng. de Software · Eng. Civil</td><td>TCC técnico; suíte de testes; benchmark</td></tr>
+          <tr><td><strong>C8</strong></td><td>Contribuir na esteira Forja; medir produtividade humano + IA; estudo de adoção</td><td>Eng. de Software · Sistemas de Informação</td><td>Artigo de engenharia; dataset de execução</td></tr>
           <tr><td><strong>Piloto Anamnésis</strong></td><td>Recrutamento e consentimento; aplicação do protocolo; anotação do Exame do Estado Mental; tabulação; coautoria</td><td>Psicologia (estágio)</td><td>Dados multimodais comparáveis; primeiro artigo clínico</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:1.4rem"><a href="./index.html"><strong>← Voltar para a proposta de parceria</strong></a></p>
+    <p style="margin-top:1.3rem"><a href="./index.html"><strong>← Voltar para a proposta de parceria</strong></a></p>
   </div>
-</section>
+</article>
 
 <footer class="footer">
   <div class="wrap">
-    <small>Dossiê de produto — LaVita Code · 2026. Framework de 8 camadas: JTBD (Christensen) · Value Proposition Canvas (Osterwalder) · Lean Canvas (Maurya) · Brand Personality (Aaker) · User Story Mapping (Patton). Companion da proposta de parceria UniAteneu × LaVita Code. Valores e datas a confirmar.</small>
+    <small>Dossiê de produto — LaVita Code · 2026. Framework de 8 camadas: JTBD (Christensen) · Value Proposition Canvas (Osterwalder) · Lean Canvas (Maurya) · Brand Personality (Aaker) · User Story Mapping (Patton). Companion da proposta de parceria UniAteneu × LaVita Code. Estado dos gates auditado em agosto/2026 — valores e datas a confirmar.</small>
   </div>
 </footer>
 
 <script>
 (function () {
   "use strict";
-  var root = document.documentElement;
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var KEY = "lavita-dossie-theme";
-  function stored(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
-  function apply(t){ if (t==="dark"||t==="light") root.setAttribute("data-theme", t); }
-  apply(stored());
-  document.getElementById("themebtn").addEventListener("click", function () {
-    var cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    var next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem(KEY, next); } catch(e){}
-  });
-
-  var revs = document.querySelectorAll(".reveal");
-  if (reduce || !("IntersectionObserver" in window)) {
-    revs.forEach(function (el){ el.classList.add("in"); });
-  } else {
-    var io = new IntersectionObserver(function (es){
-      es.forEach(function (en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
-    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.08 });
-    revs.forEach(function (el){ io.observe(el); });
-  }
-
-  var bar = document.getElementById("progress");
-  var fab = document.createElement("button");
-  fab.className = "fab"; fab.type = "button"; fab.setAttribute("aria-label","Voltar ao topo"); fab.innerHTML = "&uarr;";
-  fab.addEventListener("click", function (){ window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
-  document.body.appendChild(fab);
-  var ticking = false;
-  function onScroll(){
-    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
-    if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0).toFixed(1) + "%";
-    fab.classList.toggle("show", h.scrollTop > 700);
-    ticking = false;
-  }
-  addEventListener("scroll", function (){ if (!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
-  onScroll();
-
-  var switchBar = document.getElementById("switch");
-  var links = Array.prototype.slice.call(document.querySelectorAll("#switch a"));
-  var secs = links.map(function (a){ return document.querySelector(a.getAttribute("href")); });
-  function setActive(id){
-    links.forEach(function (a){
-      var on = a.getAttribute("href") === "#" + id;
-      a.classList.toggle("active", on);
-      if (on && switchBar) {
-        // rola apenas a barra horizontal, nunca a janela (evita loop de scroll)
-        var target = a.offsetLeft - (switchBar.clientWidth - a.clientWidth) / 2;
-        switchBar.scrollTo({ left: Math.max(0, target), behavior: reduce ? "auto" : "smooth" });
-      }
+  try {
+    var root = document.documentElement, KEY = "lavita-dossie-theme";
+    var s = null;
+    try { s = localStorage.getItem(KEY); } catch (e) {}
+    if (s === "dark" || s === "light") root.setAttribute("data-theme", s);
+    var b = document.getElementById("themebtn");
+    if (b) b.addEventListener("click", function () {
+      var cur = root.getAttribute("data-theme") ||
+        (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var next = cur === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
     });
-  }
-  if ("IntersectionObserver" in window) {
-    var sio = new IntersectionObserver(function (es){
-      es.forEach(function (en){
-        if (en.isIntersecting) setActive(en.target.getAttribute("id"));
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    secs.forEach(function (s){ if (s) sio.observe(s); });
-  }
+  } catch (e) {}
 })();
 </script>
 
