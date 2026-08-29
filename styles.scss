@@ -219,9 +219,19 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
 }
 .product__what { color: var(--ink-soft); max-width: var(--readw); }
 .posit {
-  font-family: var(--f-display); font-size: 1.05rem; font-style: italic;
-  color: var(--ink); border-left: 3px solid color-mix(in srgb, var(--key) 55%, transparent);
-  padding: .3rem 0 .3rem 1rem; margin: 1.1rem 0 1.3rem; max-width: 60ch;
+  font-family: var(--f-display); font-size: 1.08rem; font-style: italic;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--key) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--key) 28%, transparent);
+  border-left: 4px solid var(--key);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.1rem 1.2rem .95rem; margin: 1.2rem 0 1.3rem; max-width: 62ch;
+}
+.posit::before {
+  content: "Posicionamento";
+  display: block; font-family: var(--f-mono); font-style: normal;
+  font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--key); margin-bottom: .4rem;
 }
 .research {
   background: var(--surface-2); border-radius: var(--radius-sm);
