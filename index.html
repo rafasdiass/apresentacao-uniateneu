@@ -453,6 +453,7 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
       <a href="#pesquisa">Pesquisa</a>
       <a href="#pedido">O&nbsp;pedido</a>
       <a href="#etica">Ética</a>
+      <a href="./dossie.html">Dossiê</a>
       <a href="#contato">Contato</a>
     </div>
     <button class="themebtn" id="themebtn" aria-label="Alternar tema claro/escuro" title="Tema">◐</button>
@@ -529,7 +530,7 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
   <div class="wrap">
     <p class="eyebrow">Os produtos</p>
     <h2>O que é cada um — e onde o aluno pesquisa.</h2>
-    <p class="lead">Cada produto resolve um problema real de mercado e, ao mesmo tempo, abre perguntas de pesquisa que a graduação raramente consegue investigar com dados de produção.</p>
+    <p class="lead">Cada produto resolve um problema real de mercado e, ao mesmo tempo, abre perguntas de pesquisa que a graduação raramente consegue investigar com dados de produção. Cada posicionamento abaixo saiu do framework de produto de 8 camadas da LaVita — o <a href="./dossie.html"><strong>dossiê completo</strong></a> abre camada por camada (descoberta, proposta de valor, modelo de negócio, identidade, jornada).</p>
 
     <div class="prod" style="margin-top:2.2rem">
 
@@ -893,7 +894,7 @@ section > .wrap > .lead { max-width: var(--readw); color: var(--ink-soft); font-
   }
 
   /* ---- scroll-spy ---- */
-  var links = Array.prototype.slice.call(document.querySelectorAll(".nav__links a"));
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a[href^="#"]'));
   var secs = links.map(function (a) { return document.querySelector(a.getAttribute("href")); });
   if ("IntersectionObserver" in window) {
     var sio = new IntersectionObserver(function (entries) {
