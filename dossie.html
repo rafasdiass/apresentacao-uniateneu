@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dossiê de Produto — LaVita Code</title>
 <meta name="description" content="Os quatro produtos da LaVita Code lidos pelo framework de 8 camadas: descoberta, proposta de valor, modelo de negócio, identidade, jornada, telas, sistema, implementação." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -725,22 +730,30 @@ table.br th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text
   addEventListener("scroll", function (){ if (!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
   onScroll();
 
+  var switchBar = document.getElementById("switch");
   var links = Array.prototype.slice.call(document.querySelectorAll("#switch a"));
   var secs = links.map(function (a){ return document.querySelector(a.getAttribute("href")); });
+  function setActive(id){
+    links.forEach(function (a){
+      var on = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("active", on);
+      if (on && switchBar) {
+        // rola apenas a barra horizontal, nunca a janela (evita loop de scroll)
+        var target = a.offsetLeft - (switchBar.clientWidth - a.clientWidth) / 2;
+        switchBar.scrollTo({ left: Math.max(0, target), behavior: reduce ? "auto" : "smooth" });
+      }
+    });
+  }
   if ("IntersectionObserver" in window) {
     var sio = new IntersectionObserver(function (es){
       es.forEach(function (en){
-        if (en.isIntersecting){
-          var id = en.target.getAttribute("id");
-          links.forEach(function (a){
-            var on = a.getAttribute("href") === "#" + id;
-            a.classList.toggle("active", on);
-            if (on) a.scrollIntoView({ inline: "center", block: "nearest" });
-          });
-        }
+        if (en.isIntersecting) setActive(en.target.getAttribute("id"));
       });
     }, { rootMargin: "-40% 0px -55% 0px" });
     secs.forEach(function (s){ if (s) sio.observe(s); });
   }
 })();
 </script>
+
+</body>
+</html>
