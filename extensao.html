@@ -132,6 +132,12 @@ section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
 .pricebox .rows .fav{border:2px solid var(--teal);}
 .pricebox .rows .fav .tag{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-family:var(--f-mono);font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;white-space:nowrap;}
 .chip{display:inline-flex;align-items:center;gap:.4em;font-family:var(--f-mono);font-size:.74rem;font-weight:600;letter-spacing:.03em;color:var(--amber);background:color-mix(in srgb,var(--amber) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 38%,transparent);border-radius:999px;padding:.35rem .8rem;margin-bottom:1rem;}
+.factgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;margin-top:1.6rem;}
+.factgrid div{background:var(--surface);padding:1rem 1.1rem;}
+.factgrid b{display:block;font-family:var(--f-mono);font-size:.66rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin-bottom:.35rem;}
+.factgrid span{font-size:.88rem;color:var(--ink);line-height:1.4;display:block;}
+@media (max-width:800px){.factgrid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:480px){.factgrid{grid-template-columns:1fr;}}
 
 .askback{background:var(--surface-2);border-radius:var(--radius);padding:1.3rem 1.4rem;margin-top:1.4rem;}
 .askback .rh{font-family:var(--f-mono);font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;}
@@ -171,10 +177,16 @@ section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Extensão universitária · Mentes Artificiais</p>
+    <p class="eyebrow">Proposta institucional · para avaliação da coordenação e reitoria da UniAteneu</p>
     <span class="chip">Vagas limitadas: 20 a 30 por turma</span>
-    <h1>Enquanto a turma discute se a IA vai substituir o psicólogo, você vai ser quem entende como ela pensa por dentro.</h1>
-    <p>12 horas, 4 encontros presenciais, zero linha de código exigida antes de começar: você sai construindo, com as próprias mãos, um agente de IA com identidade, memória, limites e comportamento definidos por você. Prioridade para Psicologia.</p>
+    <h1>A extensão que transforma o aluno de Psicologia em autor de um agente de IA, não em espectador de uma tendência.</h1>
+    <p>Proposta de curso de extensão presencial de 12 horas, em 4 encontros: cada estudante constrói, com as próprias mãos, um agente de IA com identidade, memória, limites e comportamento definidos por ele. Prioridade para Psicologia, participação complementar de Tecnologia. Zero custo institucional.</p>
+    <div class="factgrid">
+      <div><b>Formato</b><span>Presencial, 4 encontros de 3h</span></div>
+      <div><b>Público-alvo</b><span>Prioritário: Psicologia · Complementar: Tecnologia</span></div>
+      <div><b>Diferencial</b><span>O aluno constrói um agente, não só discute IA</span></div>
+      <div><b>Vínculo com a parceria</b><span>Porta de entrada para o funil de pesquisa</span></div>
+    </div>
     <nav class="index">
       <a href="#publico">Para quem é</a>
       <a href="#proposta">Por que vale a pena</a>
@@ -190,32 +202,32 @@ section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
 
 <section id="publico">
   <div class="wrap">
-    <p class="eyebrow">Isso é para você, estudante de Psicologia</p>
-    <h2>Você já entende identidade, valores, memória e comportamento. Só nunca te deixaram construir um com eles.</h2>
-    <p class="lead">A oferta de formação em IA por aí se divide em dois extremos: cursos de "prompt engineering" que ensinam a usar uma ferramenta sem explicar nada por baixo, ou bootcamps técnicos que exigem programação e te tratam como plateia, não como autor. Nenhum dos dois fala a língua que você já domina.</p>
+    <p class="eyebrow">Público-alvo</p>
+    <h2>O aluno de Psicologia já entende identidade, valores, memória e comportamento. Só nunca o deixaram construir um sistema com eles.</h2>
+    <p class="lead">A oferta de formação em IA por aí se divide em dois extremos: cursos de "prompt engineering" que ensinam a usar uma ferramenta sem explicar nada por baixo, ou bootcamps técnicos que exigem programação e tratam o aluno como plateia, não como autor. Nenhum dos dois fala a língua que o estudante de Psicologia já domina, e é essa a lacuna que a extensão ocupa.</p>
     <div class="two" style="margin-top:1.2rem">
       <div class="box">
-        <h5>Se você é de Psicologia: prioridade total</h5>
-        <p>Você entra pela porta que já é sua: identidade, valores, memória, limites, padrões de comportamento. A diferença é que, em vez de discutir esses conceitos em teoria, você vai <em>configurá-los</em> num sistema real e ver, na hora, o que muda quando você troca uma escolha.</p>
+        <h5>Psicologia: prioridade total</h5>
+        <p>O aluno entra pela porta que já é sua: identidade, valores, memória, limites, padrões de comportamento. Em vez de discutir esses conceitos em teoria, ele vai <em>configurá-los</em> num sistema real e ver, na hora, o que muda quando troca uma escolha.</p>
       </div>
       <div class="box">
-        <h5>Se você é de Tecnologia: participação complementar</h5>
-        <p>Você vê os mesmos conceitos psicológicos virarem arquitetura de software de verdade e reforça tecnicamente uma turma majoritariamente de Psicologia, sem tomar o protagonismo dela.</p>
+        <h5>Tecnologia: participação complementar</h5>
+        <p>Vê os mesmos conceitos psicológicos virarem arquitetura de software de verdade e reforça tecnicamente uma turma majoritariamente de Psicologia, sem tomar o protagonismo dela.</p>
       </div>
     </div>
-    <div class="aha"><b>O que muda a partir do encontro 2:</b> você para de tratar o agente como ferramenta genérica e passa a defender as escolhas de identidade que <em>você mesmo</em> fez para ele. É o efeito de posse, o mesmo motivo pelo qual um objeto seu vale mais pra você do que um igual de outra pessoa, e é isso que faz você continuar usando o assistente depois da última aula.</div>
+    <div class="aha"><b>O que muda a partir do encontro 2:</b> o aluno para de tratar o agente como ferramenta genérica e passa a defender as escolhas de identidade que ele mesmo fez para ele. É o efeito de posse, o mesmo motivo pelo qual um objeto próprio vale mais do que um igual de outra pessoa, e é isso que sustenta o uso do assistente depois da última aula.</div>
   </div>
 </section>
 
 <section id="proposta">
   <div class="wrap">
-    <p class="eyebrow">Por que vale a pena</p>
-    <h2>Não é um curso sobre IA. É a autoria de um agente, com o seu nome nele.</h2>
-    <div class="posit">Para o estudante de Psicologia que quer entender IA por dentro sem virar programador, <strong>Mentes Artificiais</strong> é uma extensão presencial de 12h onde você constrói, com suas próprias mãos, um agente de IA funcional. Diferente de curso de prompt engineering (te ensina a usar) ou bootcamp de programação (exige o que você não estudou), aqui você aplica exatamente o repertório que já é seu (identidade, valores, memória, limites) na mesma arquitetura que sustenta produtos de IA em produção real.</div>
+    <p class="eyebrow">Posicionamento e diferencial</p>
+    <h2>Não é um curso sobre IA. É a autoria de um agente, com o nome do aluno nele.</h2>
+    <div class="posit">Para o estudante de Psicologia que quer entender IA por dentro sem virar programador, <strong>Mentes Artificiais</strong> é uma extensão presencial de 12h onde ele constrói, com as próprias mãos, um agente de IA funcional. Diferente de curso de prompt engineering (ensina a usar) ou bootcamp de programação (exige o que ele não estudou), aqui o aluno aplica exatamente o repertório que já é seu (identidade, valores, memória, limites) na mesma arquitetura que sustenta produtos de IA em produção real da LaVita Code.</div>
     <div class="grid3">
-      <div class="card"><h3><span>→</span>Portfólio que ninguém mais da sua turma vai ter</h3><p>Um agente configurado por você, testado com o seu material de estudo. Algo concreto pra mostrar em entrevista, TCC ou processo seletivo: não "fiz um curso", e sim "construí isto".</p></div>
-      <div class="card"><h3><span>→</span>Você entende o assunto que todo mundo só opina sobre</h3><p>Enquanto colegas debatem "a IA vai substituir o psicólogo?" na teoria, você vai saber, na prática, o que faz um sistema ter identidade reconhecível e onde estão os limites reais dele.</p></div>
-      <div class="card"><h3><span>→</span>Conduzido por quem constrói isso pra viver</h3><p>Não é professor lendo slide sobre IA: é quem projeta arquitetura de agentes em produtos reais, ensinando em laboratório, mão na massa, com você.</p></div>
+      <div class="card"><h3><span>→</span>Portfólio que nenhum colega de turma vai ter</h3><p>Um agente configurado pelo aluno, testado com o próprio material de estudo. Algo concreto pra mostrar em entrevista, TCC ou processo seletivo: não "fiz um curso", e sim "construí isto".</p></div>
+      <div class="card"><h3><span>→</span>Prática, não opinião sobre IA</h3><p>Enquanto colegas debatem "a IA vai substituir o psicólogo?" na teoria, o aluno sai sabendo, na prática, o que faz um sistema ter identidade reconhecível e onde estão os limites reais dele.</p></div>
+      <div class="card"><h3><span>→</span>Conduzido por quem constrói isso pra viver</h3><p>Não é aula sobre IA lida em slide: é quem projeta arquitetura de agentes em produtos reais, ensinando em laboratório, mão na massa, junto com a turma.</p></div>
     </div>
     <p class="lead" style="margin-top:1.2rem"><strong>Vagas limitadas a 20 a 30 por turma:</strong> não é falta de capacidade, é decisão. Turma grande demais quebra o acompanhamento individual que faz o agente sair pronto ao final do encontro 4.</p>
   </div>
@@ -364,9 +376,9 @@ section{padding:clamp(2.4rem,5vw,3.6rem) 0;border-top:1px solid var(--hair);}
       <div><div class="n">04</div><h4>Abertura das vagas</h4><p>Divulgação prioritária para Psicologia, complementar para Tecnologia.</p></div>
       <div><div class="n">05</div><h4>Execução da turma</h4><p>Quatro encontros presenciais, construção progressiva, projeto final.</p></div>
     </div>
-    <p class="lead" style="margin-top:1.4rem">Professores responsáveis: <strong>Rafael Dias</strong> (coordenação acadêmica e arquitetura de agentes) e <strong>Leandro Taddeo</strong> (cofacilitação e articulação institucional).</p>
-    <p style="margin-top:1.6rem"><a class="btn btn--primary btn--big" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20vi%20a%20proposta%20da%20extens%C3%A3o%20Mentes%20Artificiais%20e%20quero%20entender%20como%20entrar." target="_blank" rel="noopener"><strong>Quero minha vaga →</strong></a></p>
-    <p style="margin-top:1rem"><a href="./index.html#contato">← Voltar para a proposta de parceria e marcar conversa</a></p>
+    <p class="lead" style="margin-top:1.4rem">Professores propositores: <strong>Rafael Dias</strong> e <strong>Leandro Taddeo</strong>, da LaVita Code, responsáveis pela condução técnica e pedagógica da extensão.</p>
+    <p style="margin-top:1.6rem"><a class="btn btn--primary btn--big" href="https://wa.me/5585994448858?text=Ol%C3%A1%20Rafael%2C%20vi%20a%20proposta%20da%20extens%C3%A3o%20Mentes%20Artificiais%20e%20quero%20conversar%20sobre%20como%20aprovar%20e%20agendar%20a%20primeira%20turma." target="_blank" rel="noopener"><strong>Agendar conversa sobre a extensão →</strong></a></p>
+    <p style="margin-top:1rem"><a href="./index.html#contato">← Voltar para a proposta de parceria</a></p>
   </div>
 </section>
 
